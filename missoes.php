@@ -1,5 +1,4 @@
 <?php
-$page_description = 'Nossa paixão é obedecer ao chamado de Jesus para levar esperança. Saiba mais sobre nossos projetos missionários e como você pode participar.';
 $page_title = 'Missões | Luz para os Povos Hidrolândia';
 $page_css = 'missoes.css';
 require_once('includes/header.php');

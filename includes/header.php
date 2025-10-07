@@ -1,16 +1,12 @@
 <?php
 $page_title = isset($page_title) ? $page_title : 'Luz para os Povos - Hidrolândia';
 $page_css = isset($page_css) ? $page_css : '';
-// Define uma descrição padrão caso nenhuma seja especificada na página
-$page_description = isset($page_description) ? $page_description : 'Bem-vindo à Igreja Luz Para os Povos em Hidrolândia. Somos uma família de braços abertos, pronta para receber você. Participe de nossos cultos e eventos.';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>">
-    
     <title><?php echo htmlspecialchars($page_title); ?></title>
     
     <link rel="icon" type="image/png" href="/igreja/assets/images/logofav.png">
