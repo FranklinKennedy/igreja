@@ -1,0 +1,122 @@
+/* Estilos para midia.php e galeria_fotos.php */
+.galleries-section,
+.photos-section {
+    padding: 4rem 0;
+}
+
+.back-link-public {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Grid de Álbuns (midia.php) */
+.galleries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-card {
+    text-decoration: none;
+    color: var(--cor-texto);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-card-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+.photo-count {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.gallery-card-content {
+    padding: 1.5rem;
+}
+
+.gallery-card-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--cor-secundaria);
+}
+
+.gallery-card-content p {
+    margin: 0;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Grid de Fotos (galeria_fotos.php) */
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    /* Força as mídias a serem quadradas */
+}
+
+.photo-item img,
+.photo-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover img,
+.photo-item:hover video {
+    transform: scale(1.05);
+}
+
+/* Estilo para o link de "Voltar" na galeria de fotos */
+.back-link-public {
+    margin-top: 20px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 10px 20px;
+    background-color: var(--cor-fundo-escuro); /* Cinza claro do tema */
+    color: var(--cor-secundaria); /* Cinza escuro do tema */
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px; /* Deixa o botão arredondado (pílula) */
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    background-color: #E6461A; /* Cor de fundo laranja */
+}
+
+.back-link-public:hover {
+    background-color: #E6461A;
+    color: wheat; /* Texto fica branco no hover */
+    border-color: var(--cor-secundaria);
+}
+.back-link-public{
+    color:wheat;
+}

@@ -1,0 +1,209 @@
+/* assets/css/home.css (VERSÃO COMPLETA E CORRIGIDA) */
+
+/* --- Estilo da Seção Hero (Dinâmica com Imagem/Vídeo) --- */
+.hero-section {
+    padding: 8rem 0;
+    text-align: center;
+    color: #fff; /* Texto branco para contrastar com a imagem */
+    
+    /* Regra para DESKTOP: mostra a imagem/vídeo inteiro */
+    background-size: contain; 
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Garante que o vídeo não "vaze" */
+    background-color: #2c3e50; /* Cor de fundo para preencher as laterais no desktop */
+}
+
+/* Overlay escuro para melhorar a legibilidade do texto */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Fundo do vídeo */
+.hero-video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.hero-video-background video {
+    width: 100%;
+    height: 100%;
+
+    /* Regra para DESKTOP: mostra o vídeo inteiro */
+    object-fit: contain; 
+}
+
+/* Conteúdo do Hero (texto e botão) */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    max-width: 800px;
+    margin: 0 auto 1rem auto;
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo para o hero estático (caso não haja banner) */
+.hero-static {
+    background-image: none;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto);
+}
+.hero-static::before {
+    display: none;
+}
+.hero-static h1 {
+    color: var(--cor-secundaria);
+    text-shadow: none;
+}
+.hero-static p {
+    color: #666;
+    text-shadow: none;
+}
+
+/* --- Estilo da Seção de Informações --- */
+.info-section {
+    padding: 4rem 0;
+}
+.info-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    text-align: center;
+}
+
+.info-box {
+    flex-basis: 45%;
+    min-width: 280px;
+}
+
+.info-box h2 {
+    color: var(--cor-primaria);
+}
+
+.info-box p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Estilo da Seção de Destaques --- */
+.highlights-section {
+    background-color: var(--cor-fundo-escuro);
+    padding: 4rem 0;
+}
+
+.highlights-section h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.card h3 {
+    color: var(--cor-secundaria);
+}
+
+.card a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    display: inline-block;
+}
+/* ================================================= */
+/* === ESTILOS PARA O CARROSSEL (TINY SLIDER) === */
+/* ================================================= */
+
+.hero-slider-container {
+    position: relative;
+}
+
+.tns-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.tns-nav button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.tns-nav button.tns-nav-active {
+    background-color: var(--cor-primaria);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================================== */
+/* ===   NOVA SOLUÇÃO DEFINITIVA PARA TELAS MENORES (CELULARES)  === */
+/* =============================================================== */
+
+@media (max-width: 768px) {
+    .hero-section {
+        /* Reduz a altura do banner para ficar mais proporcional */
+        padding: 6rem 0; 
+        
+        /* NOVO: Para celular, voltamos a cobrir a área para um visual mais cheio */
+        background-size: cover;
+    }
+
+    .hero-video-background video {
+        /* NOVO: Para celular, o vídeo também cobre toda a área */
+        object-fit: cover;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem; 
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+}

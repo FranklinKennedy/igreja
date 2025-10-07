@@ -1,0 +1,7 @@
+.mission-content-section { padding: 5rem 0; }
+.mission-wrapper { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+@media (min-width: 900px) { .mission-wrapper { grid-template-columns: 1fr 1fr; } }
+.mission-text h2 { font-size: 2.5rem; color: var(--cor-secundaria); }
+.mission-text h3 { margin-top: 2rem; color: var(--cor-primaria); }
+.mission-text p { line-height: 1.8; color: #555; }
+.mission-image img { width: 100%; border-radius: 8px; }

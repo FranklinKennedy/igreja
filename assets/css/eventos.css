@@ -1,0 +1,101 @@
+/* assets/css/eventos.css */
+
+/* --- Estilo do Cabeçalho da Página --- */
+.page-header {
+    background-color: var(--cor-fundo-escuro);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: var(--cor-secundaria);
+    font-size: 2.5rem;
+}
+
+/* --- Seção Principal dos Eventos --- */
+.events-section {
+    padding: 4rem 0;
+}
+
+/* --- Grade de Eventos (single column) --- */
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Apenas uma coluna para um layout tipo blog */
+    gap: 2.5rem; /* Espaçamento entre os cards de evento */
+}
+
+/* --- Card Individual do Evento --- */
+.event-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Padrão para mobile: imagem em cima, texto embaixo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+}
+
+.event-card img {
+    width: 100%;
+    height: 250px; /* Altura da imagem no mobile */
+    object-fit: cover;
+}
+
+.event-content {
+    padding: 2rem;
+}
+
+.event-content .event-date {
+    color: var(--cor-primaria);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.event-content h3 {
+    color: var(--cor-secundaria);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.event-content .event-local {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Mensagem de "Nenhum evento" --- */
+.no-events {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #777;
+    background-color: var(--cor-fundo-escuro);
+    border-radius: 8px;
+}
+
+
+/* --- Responsividade para Telas Maiores (Tablets e Desktops) --- */
+@media (min-width: 768px) {
+    .event-card {
+        flex-direction: row; /* Imagem ao lado do texto */
+    }
+
+    .event-card img {
+        width: 300px; /* Largura fixa para a imagem */
+        height: auto; /* Altura se ajusta automaticamente */
+    }
+
+    .event-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

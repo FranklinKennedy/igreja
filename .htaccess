@@ -1,0 +1,50 @@
+# Inicia o motor de reescrita de URL
+RewriteEngine On
+
+# ----------------------------------------------------------------------
+# SEGURANÇA: Prevenção de Acesso Direto e Configurações
+# ----------------------------------------------------------------------
+
+# Impede que os usuários vejam a lista de arquivos de um diretório
+Options -Indexes
+
+# Bloqueia o acesso direto a arquivos de configuração sensíveis
+<Files "db_connect.php">
+    Order allow,deny
+    Deny from all
+</Files>
+<Files "session_config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protege o próprio arquivo .htaccess
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# ----------------------------------------------------------------------
+# MELHORIAS: Forçar HTTPS e WWW (Descomente se tiver SSL)
+# ----------------------------------------------------------------------
+# Se o seu site roda em https://www.seusite.com
+#
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#
+# RewriteCond %{HTTP_HOST} !^www\.
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ----------------------------------------------------------------------
+# MELHORIAS: Cabeçalhos de Segurança HTTP
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Impede que o site seja carregado dentro de um iframe em outros sites (Clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # Protege contra ataques XSS
+    Header set X-XSS-Protection "1; mode=block"
+    # Impede que o navegador "adivinhe" o tipo de conteúdo de um arquivo
+    Header set X-Content-Type-Options "nosniff"
+    # Política de Referência: só envia o cabeçalho Referer para a mesma origem
+    Header set Referrer-Policy "same-origin"
+</IfModule>

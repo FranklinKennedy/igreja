@@ -1,0 +1,75 @@
+/* assets/css/ministerios.css (VERSÃO ATUALIZADA) */
+
+/* --- Estilo do Cabeçalho da Página --- */
+.page-header {
+    background-color: var(--cor-fundo-escuro);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: var(--cor-secundaria);
+    font-size: 2.5rem;
+}
+
+/* --- Seção da Grade de Ministérios --- */
+.ministries-section {
+    padding: 4rem 0;
+}
+
+.ministries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.ministry-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ministry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* --- AQUI ESTÁ A MUDANÇA PRINCIPAL --- */
+
+/* 1. O Contêiner da Imagem */
+.ministry-card-img-container {
+    height: 200px; /* Altura fixa para a área da imagem */
+    overflow: hidden; /* Oculta o que passar dessa altura */
+    background-color: #f0f0f0; /* Cor de fundo caso a imagem não carregue */
+}
+
+/* 2. A Imagem Dentro do Contêiner */
+.ministry-card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* MOSTRA A IMAGEM INTEIRA SEM CORTAR */
+    /* A linha object-position não é mais necessária com 'contain', pode remover ou deixar */
+}
+/* --- FIM DA MUDANÇA --- */
+
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    color: var(--cor-secundaria);
+    margin-top: 0;
+}
+
+.card-content .leader {
+    color: var(--cor-primaria);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}

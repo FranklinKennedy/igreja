@@ -1,0 +1,116 @@
+/* assets/css/sobre.css */
+
+/* --- Estilo do Cabeçalho da Página --- */
+.page-header {
+    background-color: var(--cor-fundo-escuro);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: var(--cor-secundaria);
+    font-size: 2.5rem;
+}
+
+/* --- Seção da História --- */
+.history-section {
+    padding: 4rem 0;
+}
+
+.history-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.history-text {
+    flex: 1; /* O texto ocupa o espaço disponível */
+}
+
+.history-image {
+    flex: 1; /* A imagem ocupa o espaço disponível */
+}
+
+.history-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- Seção Missão, Visão e Valores --- */
+.mission-section {
+    background-color: var(--cor-secundaria);
+    color: #fff;
+    padding: 4rem 0;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.mission-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--cor-primaria);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* --- Seção da Equipe de Liderança --- */
+.leadership-section {
+    padding: 4rem 0;
+}
+
+.leadership-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.team-member {
+    text-align: center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+    border: 4px solid var(--cor-fundo-escuro);
+    margin-bottom: 1rem;
+}
+
+.team-member h3 {
+    color: var(--cor-secundaria);
+    margin-bottom: 0.25rem;
+}
+
+.team-member .role {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* --- Responsividade para telas menores --- */
+@media (max-width: 768px) {
+    .history-content {
+        flex-direction: column;
+    }
+    
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}
