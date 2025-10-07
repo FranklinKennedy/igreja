@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Acesse materiais de apoio, estudos bíblicos e outros recursos para o seu crescimento espiritual. Baixe os arquivos da Luz Para os Povos Hidrolândia.';
 $page_title = 'Downloads | Luz para os Povos Hidrolândia';
 $page_css = 'downloads.css';
 require_once('includes/header.php');

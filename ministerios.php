@@ -1,4 +1,5 @@
-<?php 
+<?php
+$page_description = 'Encontre o seu lugar em nossa família. Conheça os ministérios para jovens, casais, crianças e muito mais na Luz Para os Povos Hidrolândia.';
 $page_title = 'Ministérios | Luz para os Povos Hidrolândia';
 $page_css = 'ministerios.css';
 require_once('includes/header.php'); 

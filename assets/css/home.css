@@ -1,4 +1,4 @@
-/* assets/css/home.css (VERSÃO COMPLETA E CORRIGIDA) */
+/* assets/css/home.css (VERSÃO CORRIGIDA E RESPONSIVA) */
 
 /* --- Estilo da Seção Hero (Dinâmica com Imagem/Vídeo) --- */
 .hero-section {
@@ -6,15 +6,15 @@
     text-align: center;
     color: #fff; /* Texto branco para contrastar com a imagem */
     
-    /* Regra para DESKTOP: mostra a imagem/vídeo inteiro */
-    background-size: contain; 
+    /* Regra principal: A imagem de fundo sempre cobrirá a área */
+    background-size: cover; 
     
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
     z-index: 1;
     overflow: hidden; /* Garante que o vídeo não "vaze" */
-    background-color: #2c3e50; /* Cor de fundo para preencher as laterais no desktop */
+    background-color: #2c3e50; /* Cor de fundo para o caso de a imagem não carregar */
 }
 
 /* Overlay escuro para melhorar a legibilidade do texto */
@@ -43,8 +43,8 @@
     width: 100%;
     height: 100%;
 
-    /* Regra para DESKTOP: mostra o vídeo inteiro */
-    object-fit: contain; 
+    /* Regra principal: O vídeo sempre cobrirá a área */
+    object-fit: cover; 
 }
 
 /* Conteúdo do Hero (texto e botão) */
@@ -182,21 +182,13 @@
 }
 
 /* =============================================================== */
-/* ===   NOVA SOLUÇÃO DEFINITIVA PARA TELAS MENORES (CELULARES)  === */
+/* ===       AJUSTES FINOS PARA TELAS MENORES (CELULARES)        === */
 /* =============================================================== */
 
 @media (max-width: 768px) {
     .hero-section {
-        /* Reduz a altura do banner para ficar mais proporcional */
+        /* Reduz um pouco a altura do banner para ficar mais proporcional */
         padding: 6rem 0; 
-        
-        /* NOVO: Para celular, voltamos a cobrir a área para um visual mais cheio */
-        background-size: cover;
-    }
-
-    .hero-video-background video {
-        /* NOVO: Para celular, o vídeo também cobre toda a área */
-        object-fit: cover;
     }
 
     .hero-section h1 {

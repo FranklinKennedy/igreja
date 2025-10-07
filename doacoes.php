@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Apoie esta obra e nos ajude a continuar transformando vidas. Veja como contribuir com a Igreja Luz Para os Povos Hidrolândia através de PIX ou transferência.';
 $page_title = 'Doações | Luz para os Povos Hidrolândia';
 $page_css = 'doacoes.css';
 require_once('includes/header.php');

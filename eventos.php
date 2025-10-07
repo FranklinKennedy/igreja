@@ -1,4 +1,5 @@
-<?php 
+<?php
+$page_description = 'Fique por dentro de tudo o que acontece em nossa igreja. Confira a agenda de eventos, conferências e celebrações da Luz Para os Povos Hidrolândia.';
 $page_title = 'Eventos | Luz para os Povos Hidrolândia';
 $page_css = 'eventos.css';
 require_once('includes/header.php'); 

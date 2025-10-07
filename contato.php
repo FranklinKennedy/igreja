@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Fale conosco. Encontre nosso endereço, telefone, e-mail e redes sociais. Será um prazer receber sua visita ou mensagem na Luz Para os Povos Hidrolândia.';
 $page_title = 'Contato | Luz para os Povos Hidrolândia';
 $page_css = 'contato.css';
 require_once('includes/header.php');
@@ -66,7 +67,7 @@ $google_maps_url = 'https://www.google.com/maps/search/?api=1&query=' . urlencod
 </section>
 
 <section class="map-section">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61057.86172162439!2d-49.28710176333735!3d-16.968825900000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935f0366d216639d%3A0x514906d317e4ee0e!2sIgreja%20Luz%20Para%20Os%20Povos%20-%20Hidrol%C3%A2ndia!5e0!3m2!1spt-BR!2sbr!4v1758946950512!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d477.01474997747073!2d-49.22687112211018!3d-16.968745094729464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935f0366d216639d%3A0x514906d317e4ee0e!2sIgreja%20Luz%20Para%20Os%20Povos%20-%20Hidrol%C3%A2ndia!5e0!3m2!1spt-BR!2sbr!4v1759790066572!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
 <?php require_once('includes/footer.php'); ?>

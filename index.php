@@ -1,4 +1,5 @@
 <?php 
+$page_description = 'Encontre um lugar para pertencer. Conheça a Igreja Luz Para os Povos em Hidrolândia, veja nossos horários de cultos, eventos e ministérios. Seja bem-vindo à nossa família!';
 require_once('includes/db_connect.php');
 
 // --- LÓGICA PARA DETECTAR O TIPO DE DISPOSITIVO ---

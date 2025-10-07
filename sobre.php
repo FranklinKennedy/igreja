@@ -1,4 +1,5 @@
 <?php 
+$page_description = 'Conheça nossa história, nossa fé, e a liderança da Igreja Luz Para os Povos em Hidrolândia. Descubra nossa missão, visão e valores.';
 // 1. Define as variáveis que o header.php vai usar
 $page_title = 'Quem Somos | Luz para os Povos Hidrolândia';
 $page_css = 'sobre.css'; // Informa qual CSS específico carregar

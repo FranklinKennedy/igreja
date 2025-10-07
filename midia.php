@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Reveja os momentos especiais que vivemos em comunidade. Navegue por nossas galerias de fotos e vídeos de eventos e cultos.';
 $page_title = 'Mídia | Luz para os Povos Hidrolândia';
 $page_css = 'midia.css';
 require_once('includes/header.php');

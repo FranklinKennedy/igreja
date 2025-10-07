@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Nossa paixão é obedecer ao chamado de Jesus para levar esperança. Saiba mais sobre nossos projetos missionários e como você pode participar.';
 $page_title = 'Missões | Luz para os Povos Hidrolândia';
 $page_css = 'missoes.css';
 require_once('includes/header.php');
@@ -23,7 +24,7 @@ require_once('includes/header.php');
                 <a href="doacoes.php" class="btn">Quero Contribuir</a>
             </div>
             <div class="mission-image">
-                <img src="assets/images/placeholder_missoes.jpg" alt="Trabalho missionário">
+                <img src="assets/images/acao_social.jpg" alt="Trabalho missionário">
             </div>
         </div>
     </div>
