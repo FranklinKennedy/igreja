@@ -54,26 +54,30 @@ require_once('includes/header.php');
         <h2>Nossa Liderança</h2>
         <div class="team-grid">
             
+            <?php
+            require_once('includes/db_connect.php');
+            try {
+                $stmt = $pdo->query("SELECT nome, cargo, bio, foto_url FROM lideranca ORDER BY ordem ASC");
+                if ($stmt->rowCount() > 0) {
+                    while ($lider = $stmt->fetch()) {
+                        $foto_path = !empty($lider['foto_url']) ? htmlspecialchars($lider['foto_url']) : 'assets/images/placeholder_lider.png'; // Crie uma imagem placeholder se quiser
+            ?>
             <div class="team-member">
-                <img src="assets/images/pastor.png" alt="Foto do Pastor">
-                <h3>Pastor Layon Lozekan</h3>
-                <p class="role">Pastor Presidente</p>
-                <p class="bio">Breve biografia sobre o pastor, sua jornada e sua paixão pelo ministério.</p>
+                <img src="<?php echo $foto_path; ?>" alt="Foto de <?php echo htmlspecialchars($lider['nome']); ?>">
+                <h3><?php echo htmlspecialchars($lider['nome']); ?></h3>
+                <p class="role"><?php echo htmlspecialchars($lider['cargo']); ?></p>
+                <p class="bio"><?php echo nl2br(htmlspecialchars($lider['bio'])); ?></p>
             </div>
-            
-            <div class="team-member">
-                <img src="assets/images/pastora.png" alt="Foto do Pastora">
-                <h3>Pastora Pollyana</h3>
-                <p class="role">Pastora e Líder do Min. de Mulheres</p>
-                <p class="bio">Breve biografia sobre a pastora, suas áreas de atuação na igreja e ministério.</p>
-            </div>
-
-            <div class="team-member">
-                <img src="assets/images/jesus.jpg" alt="Foto do Líder">
-                <h3>Nome do Líder</h3>
-                <p class="role">Líder do Ministério de Jovens</p>
-                <p class="bio">Breve biografia sobre o líder, seu trabalho com a juventude da igreja.</p>
-            </div>
+            <?php
+                    }
+                } else {
+                    echo '<p>Nossa equipe de liderança será exibida aqui em breve.</p>';
+                }
+            } catch (PDOException $e) {
+                error_log("Erro ao buscar liderança: " . $e->getMessage());
+                echo '<p>Não foi possível carregar as informações da liderança no momento.</p>';
+            }
+            ?>
             
         </div>
     </div>

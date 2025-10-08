@@ -27,6 +27,7 @@ require_once('check_login.php');
                     <li><a href="/igreja/admin/dashboard">Dashboard</a></li>
                     <li><a href="/igreja/admin/gerenciar_eventos">Eventos</a></li>
                     <li><a href="/igreja/admin/gerenciar_ministerios">Ministérios</a></li>
+                    <li><a href="/igreja/admin/gerenciar_lideranca">Liderança</a></li>
                     <li><a href="/igreja/admin/gerenciar_banners">Banners da Home</a></li>
                     <li><a href="/igreja/admin/gerenciar_downloads">Downloads</a></li>
                     <li><a href="/igreja/admin/gerenciar_horarios">Gerenciar Horários</a></li>
@@ -36,6 +37,12 @@ require_once('check_login.php');
         </aside>
         <div class="admin-main">
             <header class="admin-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
                 <h2><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'Painel Administrativo'; ?></h2>
                 <div class="user-info">
                     <span>Olá, <?php echo htmlspecialchars($_SESSION['admin_nome']); ?></span>

@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Consulte a Política de Privacidade da Igreja Luz Para os Povos Hidrolândia. Entenda como tratamos seus dados e utilizamos cookies para melhorar sua experiência em nosso site.';
 $page_title = 'Política de Privacidade | Luz para os Povos Hidrolândia';
 // Podemos criar um css específico se quisermos, ou deixar sem.
 // $page_css = 'politica.css'; 

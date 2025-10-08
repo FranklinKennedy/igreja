@@ -73,13 +73,14 @@ require_once('includes/header_admin.php');
             <?php endif; ?>
         </div>
 
-        <div class="form-group">
-            <label>
-                <input type="hidden" name="ativo" value="0">
-                <input type="checkbox" id="ativo" name="ativo" value="1" <?php echo ($banner['ativo'] == 1) ? 'checked' : ''; ?>>
-                Manter este banner Ativo
-            </label>
-        </div>
+        <div class="form-group-toggle">
+    <label for="ativo" class="toggle-switch">
+        <input type="hidden" name="ativo" value="0">
+        <input type="checkbox" id="ativo" name="ativo" value="1" <?php echo ($banner['ativo'] == 1) ? 'checked' : ''; ?>>
+        <span class="slider"></span>
+    </label>
+    <span>Manter este banner Ativo</span>
+</div>
 
         <button type="submit" class="btn">Salvar Banner</button>
         <a href="gerenciar_banners" class="btn-cancel">Cancelar</a>

@@ -1,10 +1,13 @@
 <?php
+
 require_once('includes/db_connect.php');
 
 if (!isset($_GET['id']) || !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
     header('Location: midia');
     exit();
 }
+$page_description = 'Veja as fotos e vídeos da galeria "' . htmlspecialchars($galeria['titulo']) . '". Relembre os momentos especiais vividos na comunidade da Luz Para os Povos Hidrolândia.';
+
 $galeria_id = $_GET['id'];
 
 $stmt_galeria = $pdo->prepare("SELECT titulo FROM galerias WHERE id = ?");

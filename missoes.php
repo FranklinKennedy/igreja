@@ -1,4 +1,5 @@
 <?php
+$page_description = 'Conheça o coração missionário da Luz Para os Povos Hidrolândia. Saiba mais sobre nossos projetos sociais e como você pode apoiar e participar da obra missionária.';
 $page_title = 'Missões | Luz para os Povos Hidrolândia';
 $page_css = 'missoes.css';
 require_once('includes/header.php');

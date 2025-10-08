@@ -20,7 +20,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Verifica se a chave 'admin_id' NÃO existe na sessão.
 if (!isset($_SESSION['admin_id'])) {
     // Se não existir, o usuário não está logado. Redireciona e encerra o script.
-    header("Location: /igreja/admin/index.php");
+    header("Location: /igreja/admin/index");
     exit();
 }
 ?>

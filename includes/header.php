@@ -8,7 +8,7 @@ $page_css = isset($page_css) ? $page_css : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($page_title); ?></title>
-    
+    <meta name="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'Site da Igreja Luz Para os Povos de Hidrolândia. Encontre informações sobre nossos cultos, eventos, ministérios e muito mais.'; ?>">
     <link rel="icon" type="image/png" href="/igreja/assets/images/logofav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />

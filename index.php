@@ -1,4 +1,5 @@
 <?php 
+$page_description = 'Bem-vindo à Igreja Luz Para os Povos em Hidrolândia, GO. Somos uma família pronta para receber você. Encontre horários dos cultos, nossa localização e participe de nossos eventos.';
 require_once('includes/db_connect.php');
 
 // --- LÓGICA PARA DETECTAR O TIPO DE DISPOSITIVO ---
@@ -106,7 +107,7 @@ require_once('includes/header.php');
             <?php endif; ?>
         </div>
         <div class="info-box">
-            <h2>Nossa Localização</h2>
+            <h2>Nossa Localização em Hidrolândia, GO</h2>
             <p><?php echo nl2br(htmlspecialchars($configs['endereco'] ?? 'Endereço a definir')); ?></p>
             <a href="contato" class="btn">Veja no Mapa</a>
         </div>
