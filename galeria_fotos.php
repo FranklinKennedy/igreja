@@ -2,7 +2,7 @@
 require_once('includes/db_connect.php');
 
 if (!isset($_GET['id']) || !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
-    header('Location: midia.php');
+    header('Location: midia');
     exit();
 }
 $galeria_id = $_GET['id'];
@@ -12,7 +12,7 @@ $stmt_galeria->execute([$galeria_id]);
 $galeria = $stmt_galeria->fetch();
 
 if (!$galeria) {
-    header('Location: midia.php');
+    header('Location: midia');
     exit();
 }
 
@@ -27,7 +27,7 @@ require_once('includes/header.php');
 
 <section class="page-header">
     <div class="container">
-        <a href="midia.php" class="back-link-public">&larr; Voltar para todas as galerias</a>
+        <a href="midia" class="back-link-public">&larr; Voltar para todas as galerias</a>
         <h1><?php echo htmlspecialchars($galeria['titulo']); ?></h1>
     </div>
 </section>

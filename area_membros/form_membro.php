@@ -44,7 +44,7 @@ if (isset($_GET['id']) && empty($membro_post)) {
 $csrf_token = gerarTokenCSRF();
 ?>
 
-<a href="gerenciar_membros.php" class="back-link">&larr; Voltar para a Lista de Membros</a>
+<a href="gerenciar_membros" class="back-link">&larr; Voltar para a Lista de Membros</a>
 <h1 class="painel-title"><?php echo htmlspecialchars($page_title); ?></h1>
 
 <?php if (!empty($erros_validacao)): ?>
@@ -59,7 +59,7 @@ $csrf_token = gerarTokenCSRF();
 <?php endif; ?>
 
 
-<form action="scripts/membro_save.php" method="POST" class="admin-form">
+<form action="scripts/membro_save" method="POST" class="admin-form">
     <input type="hidden" name="membro_id" value="<?php echo htmlspecialchars($membro['membro_id']); ?>">
     <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
@@ -132,7 +132,7 @@ $csrf_token = gerarTokenCSRF();
 
     <div class="form-actions">
         <button type="submit" class="btn">Salvar</button>
-        <a href="gerenciar_membros.php" class="btn-cancel">Cancelar</a>
+        <a href="gerenciar_membros" class="btn-cancel">Cancelar</a>
     </div>
 </form>
 

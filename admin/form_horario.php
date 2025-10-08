@@ -22,7 +22,7 @@ require_once('includes/header_admin.php');
 <div class="container">
     <h1 class="admin-title"><?php echo htmlspecialchars($page_title); ?></h1>
 
-    <form action="scripts/horario_save.php" method="POST" class="admin-form">
+    <form action="scripts/horario_save" method="POST" class="admin-form">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($horario['id']); ?>">
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
@@ -42,7 +42,7 @@ require_once('includes/header_admin.php');
         
         <div class="form-actions">
             <button type="submit" class="btn">Salvar Alterações</button>
-            <a href="gerenciar_horarios.php" class="btn-cancel">Cancelar</a>
+            <a href="gerenciar_horarios" class="btn-cancel">Cancelar</a>
         </div>
     </form>
 </div>

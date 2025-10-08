@@ -1,24 +1,14 @@
 <?php
 $page_title = 'Adicionar Novo Banner';
-// O 'check_login.php' agora deve incluir o 'session_config.php' no início dele
 require_once('includes/check_login.php'); 
-// Incluímos as novas funções de segurança para gerar o token
 require_once('../includes/security_functions.php'); 
 require_once('../includes/db_connect.php');
 
-// Define um array padrão para um novo banner
 $banner = [
-    'id' => '',
-    'titulo' => '',
-    'subtitulo' => '',
-    'link_url' => '',
-    'texto_botao' => '', 
-    'imagem_url' => '',
-    'ativo' => 1,
-    'tipo_dispositivo' => 'desktop' // Adicionado
+    'id' => '', 'titulo' => '', 'subtitulo' => '', 'link_url' => '',
+    'texto_botao' => '', 'imagem_url' => '', 'ativo' => 1, 'tipo_dispositivo' => 'desktop'
 ];
 
-// Se um ID for passado na URL, busca os dados no banco para edição
 if (isset($_GET['id'])) {
     $page_title = 'Editar Banner';
     $stmt = $pdo->prepare("SELECT * FROM banners WHERE id = ?");
@@ -29,18 +19,15 @@ if (isset($_GET['id'])) {
     }
 }
 
-// Gera o token CSRF para ser usado no formulário
 $csrf_token = gerarTokenCSRF();
-
 require_once('includes/header_admin.php');
 ?>
 
 <div class="container">
     <h1 class="admin-title"><?php echo htmlspecialchars($page_title); ?></h1>
 
-    <form action="scripts/banner_save.php" method="POST" enctype="multipart/form-data" class="admin-form">
+    <form action="scripts/banner_save" method="POST" enctype="multipart/form-data" class="admin-form">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($banner['id']); ?>">
-        
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
         <div class="form-group">
@@ -95,7 +82,7 @@ require_once('includes/header_admin.php');
         </div>
 
         <button type="submit" class="btn">Salvar Banner</button>
-        <a href="gerenciar_banners.php" class="btn-cancel">Cancelar</a>
+        <a href="gerenciar_banners" class="btn-cancel">Cancelar</a>
     </form>
 </div>
 

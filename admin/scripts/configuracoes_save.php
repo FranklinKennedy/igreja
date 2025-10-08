@@ -21,7 +21,7 @@ try {
         if ($resultado_upload['sucesso']) {
             $_POST['pix_qrcode_url'] = $resultado_upload['caminho_relativo'];
         } else {
-            header("Location: ../configuracoes.php?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
+            header("Location: ../configuracoes?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
             exit();
         }
     }
@@ -42,13 +42,13 @@ try {
 
     $pdo->commit();
 
-    header("Location: ../configuracoes.php?status=success");
+    header("Location: ../configuracoes?status=success");
     exit();
 
 } catch (PDOException $e) {
     $pdo->rollBack();
     error_log("Erro ao salvar configurações: " . $e->getMessage());
-    header("Location: ../configuracoes.php?status=db_error");
+    header("Location: ../configuracoes?status=db_error");
     exit();
 }
 ?>

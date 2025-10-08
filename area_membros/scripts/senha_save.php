@@ -14,12 +14,12 @@ $nova_senha = $_POST['nova_senha'];
 $confirmar_senha = $_POST['confirmar_senha'];
 
 if ($nova_senha !== $confirmar_senha) {
-    header("Location: ../meu_perfil.php?status=senha_mismatch");
+    header("Location: ../meu_perfil?status=senha_mismatch");
     exit();
 }
 
 if (strlen($nova_senha) < 6) {
-    header("Location: ../meu_perfil.php?status=length_error");
+    header("Location: ../meu_perfil?status=length_error");
     exit();
 }
 
@@ -34,16 +34,16 @@ try {
         $update_stmt = $pdo->prepare("UPDATE usuarios_membros SET senha = ? WHERE id = ?");
         $update_stmt->execute([$nova_senha_hash, $usuario_membro_id]);
 
-        header("Location: ../meu_perfil.php?status=senha_ok");
+        header("Location: ../meu_perfil?status=senha_ok");
         exit();
     } else {
-        header("Location: ../meu_perfil.php?status=senha_error");
+        header("Location: ../meu_perfil?status=senha_error");
         exit();
     }
 
 } catch (PDOException $e) {
     error_log("Erro ao alterar senha: " . $e->getMessage());
-    header("Location: ../meu_perfil.php?status=db_error");
+    header("Location: ../meu_perfil?status=db_error");
     exit();
 }
 ?>

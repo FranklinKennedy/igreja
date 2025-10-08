@@ -3,7 +3,7 @@ session_start();
 // Se o usuário já estiver logado, por que mostrar a tela de login?
 // Redireciona direto para o painel principal.
 if (isset($_SESSION['admin_id'])) {
-    header("Location: dashboard.php");
+    header("Location: dashboard");
     exit();
 }
 ?>
@@ -21,7 +21,7 @@ if (isset($_SESSION['admin_id'])) {
 <body class="login-body">
     <div class="login-container">
         
-        <form action="scripts/login_process.php" method="POST" class="login-form">
+        <form action="scripts/login_process" method="POST" class="login-form">
             <img src="../assets/images/logo.png" alt="Logo Luz Para os Povos" class="login-logo">
             <h2>Painel Administrativo</h2>
 

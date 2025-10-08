@@ -24,7 +24,7 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == UPLOAD_ERR_OK) {
     if ($resultado_upload['sucesso']) {
         $imagem_url = $resultado_upload['caminho_relativo'];
     } else {
-        header("Location: ../gerenciar_ministerios.php?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
+        header("Location: ../gerenciar_ministerios?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
         exit();
     }
 }
@@ -47,12 +47,12 @@ try {
         }
     }
 
-    header("Location: ../gerenciar_ministerios.php?status=success");
+    header("Location: ../gerenciar_ministerios?status=success");
     exit();
 
 } catch (PDOException $e) {
     error_log("Erro ao salvar ministério: " . $e->getMessage());
-    header("Location: ../gerenciar_ministerios.php?status=db_error");
+    header("Location: ../gerenciar_ministerios?status=db_error");
     exit();
 }
 ?>

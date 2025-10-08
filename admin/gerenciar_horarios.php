@@ -16,7 +16,7 @@ require_once('includes/header_admin.php');
 <div class="grid-container">
     <div class="form-container">
         <h3>Adicionar Novo Horário</h3>
-        <form action="scripts/horario_save.php" method="POST" class="admin-form">
+        <form action="scripts/horario_save" method="POST" class="admin-form">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <div class="form-group">
                 <label for="dia_semana">Dia da Semana</label>
@@ -50,8 +50,8 @@ require_once('includes/header_admin.php');
                     <td><strong><?php echo htmlspecialchars($horario['dia_semana']); ?></strong></td>
                     <td><?php echo htmlspecialchars($horario['horario_descricao']); ?></td>
                     <td class="actions-cell">
-                        <a href="form_horario.php?id=<?php echo $horario['id']; ?>" class="admin-action-edit">Editar</a>
-                        <a href="scripts/horario_delete.php?id=<?php echo $horario['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
+                        <a href="form_horario?id=<?php echo $horario['id']; ?>" class="admin-action-edit">Editar</a>
+                        <a href="scripts/horario_delete?id=<?php echo $horario['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

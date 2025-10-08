@@ -22,7 +22,7 @@ $csrf_token = gerarTokenCSRF();
     <h1 class="admin-title">Configurações Gerais do Site</h1>
     <p>Altere as informações abaixo para atualizar dados importantes que aparecem em todo o site.</p>
 
-    <form action="scripts/configuracoes_save.php" method="POST" enctype="multipart/form-data" class="admin-form">
+    <form action="scripts/configuracoes_save" method="POST" enctype="multipart/form-data" class="admin-form">
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
         
         <h3>Informações de Contato</h3>

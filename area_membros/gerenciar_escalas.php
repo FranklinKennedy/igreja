@@ -15,7 +15,7 @@ $escalas_futuras = $stmt_futuras->fetchAll();
 
 <div class="header-com-botao">
     <h1 class="painel-title">Próximas Escalas</h1>
-    <a href="form_escala.php" class="btn">Criar Nova Escala</a>
+    <a href="form_escala" class="btn">Criar Nova Escala</a>
 </div>
 
 <div class="table-wrapper">
@@ -40,9 +40,9 @@ $escalas_futuras = $stmt_futuras->fetchAll();
                     <td><?php echo date('d/m/Y H:i', strtotime($escala['data_escala'])); ?></td>
                     <td><?php echo htmlspecialchars($escala['descricao']); ?></td>
                     <td class="actions-cell"> 
-                        <a href="montar_escala.php?id=<?php echo $escala['id']; ?>" class="admin-action-manage">Montar Escala</a>
-                        <a href="form_escala.php?id=<?php echo $escala['id']; ?>" class="admin-action-edit">Editar</a>
-                        <a href="scripts/escala_delete.php?id=<?php echo $escala['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
+                        <a href="montar_escala?id=<?php echo $escala['id']; ?>" class="admin-action-manage">Montar Escala</a>
+                        <a href="form_escala?id=<?php echo $escala['id']; ?>" class="admin-action-edit">Editar</a>
+                        <a href="scripts/escala_delete?id=<?php echo $escala['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 $csrf_token = gerarTokenCSRF();
 ?>
 <h1 class="painel-title"><?php echo htmlspecialchars($page_title); ?></h1>
-<form action="scripts/escala_save.php" method="POST" class="admin-form">
+<form action="scripts/escala_save" method="POST" class="admin-form">
     <input type="hidden" name="id" value="<?php echo htmlspecialchars($escala['id']); ?>">
     <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
     
@@ -54,7 +54,7 @@ $csrf_token = gerarTokenCSRF();
     
     <div class="form-actions">
         <button type="submit" class="btn">Salvar</button>
-        <a href="gerenciar_escalas.php" class="btn-cancel">Cancelar</a>
+        <a href="gerenciar_escalas" class="btn-cancel">Cancelar</a>
     </div>
 </form>
 <?php require_once('includes/footer_membros.php'); ?>

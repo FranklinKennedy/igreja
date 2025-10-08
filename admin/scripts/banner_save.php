@@ -22,7 +22,7 @@ $imagem_url = '';
 
 // ALTERAÇÃO 1: Tornar o envio de mídia obrigatório para NOVOS banners
 if (empty($id) && (!isset($_FILES['imagem']) || $_FILES['imagem']['error'] != UPLOAD_ERR_OK)) {
-    header("Location: ../form_banner.php?status=upload_error&msg=" . urlencode("É obrigatório enviar uma imagem ou vídeo para um novo banner."));
+    header("Location: ../form_banner?status=upload_error&msg=" . urlencode("É obrigatório enviar uma imagem ou vídeo para um novo banner."));
     exit();
 }
 
@@ -38,7 +38,7 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == UPLOAD_ERR_OK) {
         $imagem_url = $resultado_upload['caminho_relativo'];
     } else {
         $id_param = !empty($id) ? '&id=' . $id : '';
-        header("Location: ../form_banner.php?status=upload_error&msg=" . urlencode($resultado_upload['erro']) . $id_param);
+        header("Location: ../form_banner?status=upload_error&msg=" . urlencode($resultado_upload['erro']) . $id_param);
         exit();
     }
 }
@@ -70,11 +70,11 @@ try {
             $stmt->execute([$titulo, $subtitulo, $link_url, $texto_botao, $ativo, $tipo_dispositivo, $id]);
         }
     }
-    header("Location: ../gerenciar_banners.php?status=success");
+    header("Location: ../gerenciar_banners?status=success");
     exit();
 } catch (PDOException $e) {
     error_log("Erro ao salvar banner: " . $e->getMessage());
-    header("Location: ../gerenciar_banners.php?status=db_error");
+    header("Location: ../gerenciar_banners?status=db_error");
     exit();
 }
 ?>

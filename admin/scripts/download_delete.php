@@ -1,6 +1,11 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_id']) || !isset($_GET['id'])) { die('Acesso negado.'); }
+require_once('../../includes/session_config.php');
+require_once('../../includes/security_functions.php');
+
+if (!isset($_SESSION['admin_id']) || !isset($_GET['id']) || !isset($_GET['token'])) {
+    die('Acesso negado.');
+}
+validarTokenCSRF($_GET['token']);
 require_once('../../includes/db_connect.php');
 $id = $_GET['id'];
 try {
@@ -15,9 +20,11 @@ try {
     }
     $stmt = $pdo->prepare("DELETE FROM downloads WHERE id = ?");
     $stmt->execute([$id]);
-    header("Location: ../gerenciar_downloads.php?status=deleted");
+    header("Location: ../gerenciar_downloads?status=deleted");
     exit();
 } catch (PDOException $e) {
-    die("Erro ao excluir: " . $e->getMessage());
+    error_log("Erro ao excluir download: " . $e->getMessage());
+    header("Location: ../gerenciar_downloads?status=db_error");
+    exit();
 }
 ?>

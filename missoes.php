@@ -20,7 +20,7 @@ require_once('includes/header.php');
                 <p>Em Hidrolândia, atuamos com projetos sociais que visam amparar famílias, oferecer suporte e demonstrar o amor de Cristo de forma prática. Além disso, apoiamos e enviamos missionários para diversas partes do Brasil e do mundo.</p>
                 <h3>Como Você Pode Participar?</h3>
                 <p>Sua participação é fundamental. Você pode se envolver através da oração, contribuição financeira ou participando ativamente de nossos projetos e viagens missionárias. Fale conosco para saber mais!</p>
-                <a href="doacoes.php" class="btn">Quero Contribuir</a>
+                <a href="doacoes" class="btn">Quero Contribuir</a>
             </div>
             <div class="mission-image">
                 <img src="assets/images/acao_social.jpg" alt="Trabalho missionário">

@@ -21,7 +21,7 @@ $csrf_token = gerarTokenCSRF();
 <div class="perfil-grid">
     <div class="form-container">
         <h3>Meus Dados Pessoais</h3>
-        <form action="scripts/perfil_save.php" method="POST" class="admin-form">
+        <form action="scripts/perfil_save" method="POST" class="admin-form">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <div class="form-group">
                 <label for="nome_completo">Nome Completo</label>
@@ -47,7 +47,7 @@ $csrf_token = gerarTokenCSRF();
 
     <div class="form-container">
         <h3>Alterar Senha</h3>
-        <form action="scripts/senha_save.php" method="POST" class="admin-form">
+        <form action="scripts/senha_save" method="POST" class="admin-form">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <div class="form-group">
                 <label for="senha_atual">Senha Atual</label>

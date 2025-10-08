@@ -5,7 +5,7 @@ require_once('../includes/security_functions.php');
 require_once('../includes/db_connect.php');
 
 if (!isset($_GET['galeria_id']) || !filter_var($_GET['galeria_id'], FILTER_VALIDATE_INT)) {
-    header("Location: gerenciar_galerias.php?status=error");
+    header("Location: gerenciar_galerias?status=error");
     exit();
 }
 $galeria_id = $_GET['galeria_id'];
@@ -15,7 +15,7 @@ $stmt_galeria->execute([$galeria_id]);
 $galeria = $stmt_galeria->fetch();
 
 if (!$galeria) {
-    header("Location: gerenciar_galerias.php?status=not_found");
+    header("Location: gerenciar_galerias?status=not_found");
     exit();
 }
 
@@ -28,12 +28,12 @@ $csrf_token = gerarTokenCSRF();
 ?>
 
 <div class="container">
-    <a href="gerenciar_galerias.php" class="back-link">&larr; Voltar para Todas as Galerias</a>
+    <a href="gerenciar_galerias" class="back-link">&larr; Voltar para Todas as Galerias</a>
     <h1 class="admin-title">Gerenciando Fotos de: "<?php echo htmlspecialchars($galeria['titulo']); ?>"</h1>
 
     <div class="upload-form-container admin-form">
         <h3>Adicionar Novas Fotos</h3>
-        <form action="scripts/foto_save.php" method="POST" enctype="multipart/form-data">
+        <form action="scripts/foto_save" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="galeria_id" value="<?php echo $galeria_id; ?>">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             
@@ -57,7 +57,7 @@ $csrf_token = gerarTokenCSRF();
             <?php foreach ($fotos as $foto): ?>
                 <div class="photo-card">
                     <img src="../<?php echo htmlspecialchars($foto['imagem_url']); ?>" alt="<?php echo htmlspecialchars($foto['legenda']); ?>">
-                    <a href="scripts/foto_delete.php?foto_id=<?php echo $foto['id']; ?>&galeria_id=<?php echo $galeria_id; ?>&token=<?php echo $csrf_token; ?>" class="delete-photo-btn" onclick="return confirm('Tem certeza que deseja excluir esta foto?');" title="Excluir Foto">&times;</a>
+                    <a href="scripts/foto_delete?foto_id=<?php echo $foto['id']; ?>&galeria_id=<?php echo $galeria_id; ?>&token=<?php echo $csrf_token; ?>" class="delete-photo-btn" onclick="return confirm('Tem certeza que deseja excluir esta foto?');" title="Excluir Foto">&times;</a>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>

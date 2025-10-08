@@ -29,7 +29,7 @@ require_once('includes/db_connect.php');
             if ($stmt->rowCount() > 0):
                 while ($galeria = $stmt->fetch()):
             ?>
-                <a href="galeria_fotos.php?id=<?php echo $galeria['id']; ?>" class="gallery-card">
+                <a href="galeria_fotos?id=<?php echo $galeria['id']; ?>" class="gallery-card">
                     <div class="gallery-card-image" style="background-image: url('<?php echo htmlspecialchars($galeria['imagem_capa_url']); ?>');">
                         <div class="photo-count"><?php echo $galeria['total_fotos']; ?> Fotos</div>
                     </div>

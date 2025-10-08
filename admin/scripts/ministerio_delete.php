@@ -31,13 +31,13 @@ try {
 
     $pdo->commit();
 
-    header("Location: ../gerenciar_ministerios.php?status=deleted");
+    header("Location: ../gerenciar_ministerios?status=deleted");
     exit();
 
 } catch (PDOException $e) {
     $pdo->rollBack();
     error_log("Erro ao excluir ministério: " . $e->getMessage());
-    header("Location: ../gerenciar_ministerios.php?status=db_error");
+    header("Location: ../gerenciar_ministerios?status=db_error");
     exit();
 }
 ?>

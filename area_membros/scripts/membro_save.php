@@ -7,7 +7,7 @@ if (!isset($_SESSION['membro_id']) || $_SESSION['nivel_acesso'] != 1) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../gerenciar_membros.php");
+    header("Location: ../gerenciar_membros");
     exit();
 }
 
@@ -73,7 +73,7 @@ if (!empty($erros)) {
     $_SESSION['form_errors'] = $erros;
     $_SESSION['form_data'] = $dados_formulario;
     $id_param = !empty($membro_id) ? '?id=' . $membro_id : '';
-    header("Location: ../form_membro.php" . $id_param);
+    header("Location: ../form_membro" . $id_param);
     exit();
 }
 
@@ -120,7 +120,7 @@ try {
     unset($_SESSION['form_errors']);
     unset($_SESSION['form_data']);
 
-    header("Location: ../gerenciar_membros.php?status=success");
+    header("Location: ../gerenciar_membros?status=success");
     exit();
 
 } catch (PDOException $e) {
@@ -129,7 +129,7 @@ try {
     $_SESSION['form_errors'] = ["Ocorreu um erro fatal ao salvar no banco de dados. Verifique o log."];
     $_SESSION['form_data'] = $_POST;
     $id_param = !empty($membro_id) ? '?id=' . $membro_id : '';
-    header("Location: ../form_membro.php" . $id_param);
+    header("Location: ../form_membro" . $id_param);
     exit();
 }
 ?>

@@ -14,7 +14,7 @@ require_once(__DIR__ . '/../../includes/session_config.php');
 if (!isset($_SESSION['membro_id'])) {
     // Adicionamos um status para que a página de login possa, se quisermos,
     // mostrar uma mensagem de "Sessão expirada".
-    header("Location: login.php?status=expired");
+    header("Location: login?status=expired");
     exit();
 }
 
@@ -41,17 +41,17 @@ $nivel_acesso = $_SESSION['nivel_acesso'];
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="index.php">Minha Escala</a></li>
+                    <li><a href="index">Minha Escala</a></li>
                     
                     <?php if ($nivel_acesso == 1): // Links que só o Admin (Nível 1) pode ver ?>
                         <li class="nav-divider">ADMINISTRAÇÃO</li>
-                        <li><a href="gerenciar_membros.php">Gerenciar Membros</a></li>
-                        <li><a href="gerenciar_escalas.php">Gerenciar Escalas</a></li>
-                        <li><a href="gerenciar_funcoes.php">Gerenciar Funções</a></li>
+                        <li><a href="gerenciar_membros">Gerenciar Membros</a></li>
+                        <li><a href="gerenciar_escalas">Gerenciar Escalas</a></li>
+                        <li><a href="gerenciar_funcoes">Gerenciar Funções</a></li>
                     <?php endif; ?>
                     
                     <li class="nav-divider">CONTA</li>
-                    <li><a href="meu_perfil.php">Meu Perfil</a></li>
+                    <li><a href="meu_perfil">Meu Perfil</a></li>
                 </ul>
             </nav>
         </aside>
@@ -70,7 +70,7 @@ $nivel_acesso = $_SESSION['nivel_acesso'];
                         $primeiroNome = $partesNome[0];
                         echo htmlspecialchars($primeiroNome); 
                     ?></span>
-                    <a href="scripts/logout.php" class="logout-btn">Sair</a>
+                    <a href="scripts/logout" class="logout-btn">Sair</a>
                 </div>
             </header>
             <main class="painel-content">

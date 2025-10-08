@@ -5,7 +5,7 @@ require_once('../../includes/security_functions.php');
 if (!isset($_SESSION['membro_id']) || $_SESSION['nivel_acesso'] != 1) { die('Acesso negado.'); }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../gerenciar_escalas.php");
+    header("Location: ../gerenciar_escalas");
     exit();
 }
 
@@ -22,7 +22,7 @@ date_default_timezone_set('America/Sao_Paulo');
 $data_atual_string = date('Y-m-d\TH:i');
 if ($data_escala < $data_atual_string && empty($id)) { // Apenas para novas escalas
     $id_param = !empty($id) ? '&id=' . $id : '';
-    header("Location: ../form_escala.php?status=past_date" . $id_param);
+    header("Location: ../form_escala?status=past_date" . $id_param);
     exit();
 }
 
@@ -34,11 +34,11 @@ try {
         $stmt = $pdo->prepare("UPDATE escalas SET titulo = ?, data_escala = ?, descricao = ? WHERE id = ?");
         $stmt->execute([$titulo, $data_escala, $descricao, $id]);
     }
-    header("Location: ../gerenciar_escalas.php?status=success");
+    header("Location: ../gerenciar_escalas?status=success");
     exit();
 } catch (PDOException $e) {
     error_log("Erro ao salvar escala: " . $e->getMessage());
-    header("Location: ../gerenciar_escalas.php?status=db_error");
+    header("Location: ../gerenciar_escalas?status=db_error");
     exit();
 }
 ?>

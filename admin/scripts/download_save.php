@@ -16,7 +16,7 @@ $tipo_arquivo = '';
 
 // REGRA DE NEGÓCIO: Se for um NOVO download, o arquivo é obrigatório
 if (empty($id) && (!isset($_FILES['arquivo']) || $_FILES['arquivo']['error'] != UPLOAD_ERR_OK)) {
-    header("Location: ../gerenciar_downloads.php?status=upload_error&msg=" . urlencode("É obrigatório anexar um arquivo ao criar um novo download."));
+    header("Location: ../gerenciar_downloads?status=upload_error&msg=" . urlencode("É obrigatório anexar um arquivo ao criar um novo download."));
     exit();
 }
 
@@ -29,7 +29,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] == UPLOAD_ERR_OK) {
         $arquivo_url = $resultado_upload['caminho_relativo'];
         $tipo_arquivo = pathinfo($arquivo_url, PATHINFO_EXTENSION);
     } else {
-        header("Location: ../gerenciar_downloads.php?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
+        header("Location: ../gerenciar_downloads?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
         exit();
     }
 }
@@ -51,11 +51,11 @@ try {
             $stmt->execute([$titulo, $descricao, $id]);
         }
     }
-    header("Location: ../gerenciar_downloads.php?status=success");
+    header("Location: ../gerenciar_downloads?status=success");
     exit();
 } catch (PDOException $e) {
     error_log("Erro ao salvar download: " . $e->getMessage());
-    header("Location: ../gerenciar_downloads.php?status=db_error");
+    header("Location: ../gerenciar_downloads?status=db_error");
     exit();
 }
 ?>

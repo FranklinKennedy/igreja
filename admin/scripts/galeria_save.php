@@ -22,7 +22,7 @@ if (isset($_FILES['imagem_capa']) && $_FILES['imagem_capa']['error'] == UPLOAD_E
     if ($resultado_upload['sucesso']) {
         $imagem_capa_url = $resultado_upload['caminho_relativo'];
     } else {
-        header("Location: ../gerenciar_galerias.php?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
+        header("Location: ../gerenciar_galerias?status=upload_error&msg=" . urlencode($resultado_upload['erro']));
         exit();
     }
 }
@@ -44,12 +44,12 @@ try {
         }
     }
 
-    header("Location: ../gerenciar_galerias.php?status=success");
+    header("Location: ../gerenciar_galerias?status=success");
     exit();
 
 } catch (PDOException $e) {
     error_log("Erro ao salvar galeria: " . $e->getMessage());
-    header("Location: ../gerenciar_galerias.php?status=db_error");
+    header("Location: ../gerenciar_galerias?status=db_error");
     exit();
 }
 ?>

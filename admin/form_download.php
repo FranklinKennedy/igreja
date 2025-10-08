@@ -19,7 +19,7 @@ require_once('includes/header_admin.php');
 ?>
 <div class="container">
     <h1 class="admin-title"><?php echo htmlspecialchars($page_title); ?></h1>
-    <form action="scripts/download_save.php" method="POST" enctype="multipart/form-data" class="admin-form">
+    <form action="scripts/download_save" method="POST" enctype="multipart/form-data" class="admin-form">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($download['id']); ?>">
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
@@ -40,7 +40,7 @@ require_once('includes/header_admin.php');
             <?php endif; ?>
         </div>
         <button type="submit" class="btn">Salvar</button>
-        <a href="gerenciar_downloads.php" class="btn-cancel">Cancelar</a>
+        <a href="gerenciar_downloads" class="btn-cancel">Cancelar</a>
     </form>
 </div>
 <?php require_once('includes/footer_admin.php'); ?>

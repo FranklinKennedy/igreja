@@ -3,7 +3,7 @@ require_once('../../includes/session_config.php');
 require_once('../../includes/security_functions.php');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../login.php");
+    header("Location: ../login");
     exit();
 }
 
@@ -29,16 +29,16 @@ try {
         $stmt_update = $pdo->prepare($sql_update);
         $stmt_update->execute([$nova_senha_hash, $membro_id]);
 
-        header("Location: ../login.php?success=password_reset");
+        header("Location: ../login?success=password_reset");
         exit();
     } else {
-        header("Location: ../esqueci_senha.php?error=notfound");
+        header("Location: ../esqueci_senha?error=notfound");
         exit();
     }
 
 } catch (PDOException $e) {
     error_log("Erro no processo de esqueci a senha: " . $e->getMessage());
-    header("Location: ../esqueci_senha.php?error=db_error");
+    header("Location: ../esqueci_senha?error=db_error");
     exit();
 }
 ?>

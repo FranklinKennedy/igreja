@@ -5,7 +5,7 @@ require_once('../../includes/security_functions.php');
 if (!isset($_SESSION['membro_id']) || $_SESSION['nivel_acesso'] != 1) { die('Acesso negado.'); }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../gerenciar_escalas.php");
+    header("Location: ../gerenciar_escalas");
     exit();
 }
 
@@ -31,6 +31,6 @@ if (!empty($escala_id) && !empty($funcao_id) && !empty($membro_id)) {
     }
 }
 
-header("Location: ../montar_escala.php?id=" . $escala_id);
+header("Location: ../montar_escala?id=" . $escala_id);
 exit();
 ?>

@@ -31,13 +31,13 @@ try {
 
     $pdo->commit();
 
-    header("Location: ../gerenciar_eventos.php?status=deleted");
+    header("Location: ../gerenciar_eventos?status=deleted");
     exit();
 
 } catch (PDOException $e) {
     $pdo->rollBack();
     error_log("Erro ao excluir evento: " . $e->getMessage());
-    header("Location: ../gerenciar_eventos.php?status=db_error");
+    header("Location: ../gerenciar_eventos?status=db_error");
     exit();
 }
 ?>

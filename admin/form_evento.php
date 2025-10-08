@@ -1,14 +1,11 @@
 <?php
-// O 'check_login.php' já lida com o início da sessão segura
 require_once('includes/check_login.php');
-// Incluímos nossas funções de segurança para gerar o token
 require_once('../includes/security_functions.php');
 require_once('../includes/db_connect.php');
 
 $evento = ['id' => '', 'titulo' => '', 'descricao' => '', 'data_evento' => '', 'local' => '', 'imagem_url' => ''];
 $page_title = 'Adicionar Novo Evento';
 
-// Se um ID for passado via GET, estamos editando. Busca os dados no banco.
 if (isset($_GET['id'])) {
     $page_title = 'Editar Evento';
     $stmt = $pdo->prepare("SELECT * FROM eventos WHERE id = ?");
@@ -16,16 +13,14 @@ if (isset($_GET['id'])) {
     $evento = $stmt->fetch();
 }
 
-// Gera o token de segurança para o formulário
 $csrf_token = gerarTokenCSRF();
-
 require_once('includes/header_admin.php');
 ?>
 
 <div class="container">
     <h1 class="admin-title"><?php echo htmlspecialchars($page_title); ?></h1>
 
-    <form action="scripts/evento_save.php" method="POST" enctype="multipart/form-data" class="admin-form">
+    <form action="scripts/evento_save" method="POST" enctype="multipart/form-data" class="admin-form">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($evento['id']); ?>">
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
@@ -59,7 +54,7 @@ require_once('includes/header_admin.php');
 
         <div class="form-actions">
             <button type="submit" class="btn">Salvar Evento</button>
-            <a href="gerenciar_eventos.php" class="btn-cancel">Cancelar</a>
+            <a href="gerenciar_eventos" class="btn-cancel">Cancelar</a>
         </div>
     </form>
 </div>

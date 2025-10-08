@@ -44,13 +44,13 @@ try {
 
     $pdo->commit();
 
-    header("Location: ../gerenciar_galerias.php?status=deleted");
+    header("Location: ../gerenciar_galerias?status=deleted");
     exit();
 
 } catch (PDOException $e) {
     $pdo->rollBack();
     error_log("Erro ao excluir galeria: " . $e->getMessage());
-    header("Location: ../gerenciar_galerias.php?status=db_error");
+    header("Location: ../gerenciar_galerias?status=db_error");
     exit();
 }
 ?>

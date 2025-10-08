@@ -17,10 +17,10 @@ try {
     $stmt->execute([$_GET['id']]);
 } catch (PDOException $e) {
     error_log("Erro ao excluir escala: " . $e->getMessage());
-    header("Location: ../gerenciar_escalas.php?status=db_error");
+    header("Location: ../gerenciar_escalas?status=db_error");
     exit();
 }
 
-header("Location: ../gerenciar_escalas.php?status=deleted");
+header("Location: ../gerenciar_escalas?status=deleted");
 exit();
 ?>

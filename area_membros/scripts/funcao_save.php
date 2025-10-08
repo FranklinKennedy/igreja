@@ -5,7 +5,7 @@ require_once('../../includes/security_functions.php');
 if (!isset($_SESSION['membro_id']) || $_SESSION['nivel_acesso'] != 1) { die('Acesso negado.'); }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../gerenciar_funcoes.php");
+    header("Location: ../gerenciar_funcoes");
     exit();
 }
 
@@ -20,11 +20,11 @@ if (!empty($nome_funcao)) {
         $stmt->execute([$nome_funcao]);
     } catch (PDOException $e) {
         error_log("Erro ao salvar função: " . $e->getMessage());
-        header("Location: ../gerenciar_funcoes.php?status=db_error");
+        header("Location: ../gerenciar_funcoes?status=db_error");
         exit();
     }
 }
 
-header("Location: ../gerenciar_funcoes.php?status=success");
+header("Location: ../gerenciar_funcoes?status=success");
 exit();
 ?>

@@ -16,7 +16,7 @@ $csrf_token = gerarTokenCSRF();
 <div class="grid-container">
     <div class="form-container">
         <h3>Adicionar Nova Função</h3>
-        <form action="scripts/funcao_save.php" method="POST" class="admin-form">
+        <form action="scripts/funcao_save" method="POST" class="admin-form">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <div class="form-group">
                 <label for="nome_funcao">Nome da Função</label>
@@ -36,7 +36,7 @@ $csrf_token = gerarTokenCSRF();
                 <tr>
                     <td><?php echo htmlspecialchars($funcao['nome_funcao']); ?></td>
                     <td style="text-align: right;">
-                        <a href="scripts/funcao_delete.php?id=<?php echo $funcao['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
+                        <a href="scripts/funcao_delete?id=<?php echo $funcao['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

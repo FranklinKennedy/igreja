@@ -33,11 +33,11 @@ if (!empty($dia) && !empty($desc)) {
         }
     } catch (PDOException $e) {
         error_log("Erro ao salvar horário: " . $e->getMessage());
-        header("Location: ../gerenciar_horarios.php?status=db_error");
+        header("Location: ../gerenciar_horarios?status=db_error");
         exit();
     }
 }
 
-header("Location: ../gerenciar_horarios.php?status=success");
+header("Location: ../gerenciar_horarios?status=success");
 exit();
 ?>

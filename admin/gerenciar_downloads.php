@@ -11,7 +11,7 @@ require_once('includes/header_admin.php');
 ?>
 <div class="container">
     <h1 class="admin-title">Gerenciar Arquivos para Download</h1>
-    <a href="form_download.php" class="btn admin-btn-add">Adicionar Novo Arquivo</a>
+    <a href="form_download" class="btn admin-btn-add">Adicionar Novo Arquivo</a>
 
     <table class="admin-table">
         <thead>
@@ -32,8 +32,8 @@ require_once('includes/header_admin.php');
                 <td><?php echo htmlspecialchars($download['descricao']); ?></td>
                 <td><span class="file-type"><?php echo strtoupper(htmlspecialchars($download['tipo_arquivo'])); ?></span></td>
                 <td>
-                    <a href="form_download.php?id=<?php echo $download['id']; ?>" class="admin-action-edit">Editar</a>
-                    <a href="scripts/download_delete.php?id=<?php echo $download['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
+                    <a href="form_download?id=<?php echo $download['id']; ?>" class="admin-action-edit">Editar</a>
+                    <a href="scripts/download_delete?id=<?php echo $download['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
                 </td>
             </tr>
             <?php endwhile; ?>

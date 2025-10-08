@@ -3,7 +3,7 @@ require_once('../../includes/session_config.php');
 require_once('../../includes/security_functions.php');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_SESSION['temp_membro_id'])) {
-    header('Location: ../login.php');
+    header('Location: ../login');
     exit();
 }
 
@@ -16,12 +16,12 @@ $nova_senha = $_POST['nova_senha'];
 $confirmar_senha = $_POST['confirmar_senha'];
 
 if ($nova_senha !== $confirmar_senha) {
-    header('Location: ../primeiro_acesso.php?error=mismatch');
+    header('Location: ../primeiro_acesso?error=mismatch');
     exit();
 }
 
 if (strlen($nova_senha) < 6) {
-    header('Location: ../primeiro_acesso.php?error=length');
+    header('Location: ../primeiro_acesso?error=length');
     exit();
 }
 
@@ -31,7 +31,7 @@ try {
     $membro = $stmt->fetch();
 
     if ($membro && $nova_senha === $membro['cpf']) {
-        header('Location: ../primeiro_acesso.php?error=cpf');
+        header('Location: ../primeiro_acesso?error=cpf');
         exit();
     }
 
@@ -44,12 +44,12 @@ try {
     session_unset();
     session_destroy();
 
-    header('Location: ../login.php?success=password_changed');
+    header('Location: ../login?success=password_changed');
     exit();
 
 } catch (PDOException $e) {
     error_log("Erro no primeiro acesso: " . $e->getMessage());
-    header("Location: ../primeiro_acesso.php?status=db_error");
+    header("Location: ../primeiro_acesso?status=db_error");
     exit();
 }
 ?>

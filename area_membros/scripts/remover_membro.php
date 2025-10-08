@@ -22,6 +22,6 @@ try {
     error_log("Erro ao remover membro da escala: " . $e->getMessage());
 }
 
-header("Location: ../montar_escala.php?id=" . $escala_id);
+header("Location: ../montar_escala?id=" . $escala_id);
 exit();
 ?>

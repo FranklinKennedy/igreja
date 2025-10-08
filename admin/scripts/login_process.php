@@ -3,7 +3,7 @@
 require_once('../../includes/session_config.php');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../index.php");
+    header("Location: ../index");
     exit();
 }
 
@@ -26,17 +26,17 @@ try {
         $_SESSION['admin_id'] = $admin['id'];
         $_SESSION['admin_nome'] = $admin['nome'];
         
-        header("Location: ../dashboard.php");
+        header("Location: ../dashboard");
         exit();
     } else {
         // Falha no login
-        header("Location: ../index.php?error=1");
+        header("Location: ../index?error=1");
         exit();
     }
 
 } catch (PDOException $e) {
     error_log("Erro no login do admin: " . $e->getMessage());
-    header("Location: ../index.php?status=db_error");
+    header("Location: ../index?status=db_error");
     exit();
 }
 ?>

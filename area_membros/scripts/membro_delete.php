@@ -7,7 +7,7 @@ if (!isset($_SESSION['membro_id']) || $_SESSION['nivel_acesso'] != 1) {
 }
 
 if (!isset($_GET['id']) || !isset($_GET['token'])) {
-    header("Location: ../gerenciar_membros.php?status=error");
+    header("Location: ../gerenciar_membros?status=error");
     exit();
 }
 
@@ -23,12 +23,12 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$membro_id_para_excluir]);
 
-    header("Location: ../gerenciar_membros.php?status=deleted");
+    header("Location: ../gerenciar_membros?status=deleted");
     exit();
 
 } catch (PDOException $e) {
     error_log("Erro ao excluir membro: " . $e->getMessage());
-    header("Location: ../gerenciar_membros.php?status=db_error");
+    header("Location: ../gerenciar_membros?status=db_error");
     exit();
 }
 ?>

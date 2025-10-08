@@ -5,7 +5,7 @@ require_once('../includes/session_config.php');
 
 // Se o membro já estiver logado, redireciona para o painel de membros
 if (isset($_SESSION['membro_id'])) {
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>
@@ -23,7 +23,7 @@ if (isset($_SESSION['membro_id'])) {
 </head>
 <body class="login-body">
     <div class="login-container">
-        <form action="scripts/login_process.php" method="POST" class="login-form">
+        <form action="scripts/login_process" method="POST" class="login-form">
             <img src="../assets/images/logo.png" alt="Logo Luz Para os Povos" class="login-logo">
             <h2>Área de Membros</h2>
 
@@ -57,7 +57,7 @@ if (isset($_SESSION['membro_id'])) {
                 <input type="password" id="senha" name="senha" required>
             </div>
             <button type="submit" class="btn">Entrar</button>
-            <a href="esqueci_senha.php" class="forgot-password-link">Esqueci minha senha</a>
+            <a href="esqueci_senha" class="forgot-password-link">Esqueci minha senha</a>
         </form>
     </div>
 </body>

@@ -18,6 +18,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Redireciona para a página de login com mensagem de sucesso.
-header("Location: ../login.php?loggedout=1");
+header("Location: ../login?loggedout=1");
 exit();
 ?>

@@ -32,13 +32,13 @@ try {
 
     $pdo->commit();
 
-    header("Location: ../gerenciar_fotos.php?galeria_id=" . $galeria_id_para_redirecionar . "&status=deleted");
+    header("Location: ../gerenciar_fotos?galeria_id=" . $galeria_id_para_redirecionar . "&status=deleted");
     exit();
 
 } catch (PDOException $e) {
     $pdo->rollBack();
     error_log("Erro ao excluir foto: " . $e->getMessage());
-    header("Location: ../gerenciar_fotos.php?galeria_id=" . $galeria_id_para_redirecionar . "&status=db_error");
+    header("Location: ../gerenciar_fotos?galeria_id=" . $galeria_id_para_redirecionar . "&status=db_error");
     exit();
 }
 ?>

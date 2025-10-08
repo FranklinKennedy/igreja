@@ -88,7 +88,7 @@ require_once('includes/header.php');
         <div class="container">
             <h1>Transformando o mundo, uma vida de cada vez.</h1>
             <p>Somos uma família de braços abertos, pronta para receber você em Hidrolândia. Venha nos conhecer!</p>
-            <a href="sobre.php" class="btn">Saiba Mais Sobre Nós</a>
+            <a href="sobre" class="btn">Saiba Mais Sobre Nós</a>
         </div>
     </section>
 <?php endif; ?>
@@ -108,7 +108,7 @@ require_once('includes/header.php');
         <div class="info-box">
             <h2>Nossa Localização</h2>
             <p><?php echo nl2br(htmlspecialchars($configs['endereco'] ?? 'Endereço a definir')); ?></p>
-            <a href="contato.php" class="btn">Veja no Mapa</a>
+            <a href="contato" class="btn">Veja no Mapa</a>
         </div>
     </div>
 </section>
@@ -120,12 +120,12 @@ require_once('includes/header.php');
             <div class="card">
                 <h3>Próximos Eventos</h3>
                 <p>Fique por dentro de nossas conferências, retiros e celebrações especiais.</p>
-                <a href="eventos.php" class="btn">Ver Agenda</a>
+                <a href="eventos" class="btn">Ver Agenda</a>
             </div>
             <div class="card">
                 <h3>Nossos Ministérios</h3>
                 <p>Encontre um lugar para servir e crescer. Conheça os ministérios para jovens, casais e crianças.</p>
-                <a href="ministerios.php" class="btn">Conhecer</a>
+                <a href="ministerios" class="btn">Conhecer</a>
             </div>
             <div class="card">
                 <h3>Grupos Familiares</h3>

@@ -18,10 +18,10 @@ try {
     $stmt->execute([$id]);
 } catch (PDOException $e) {
     error_log("Erro ao excluir horário: " . $e->getMessage());
-    header("Location: ../gerenciar_horarios.php?status=db_error");
+    header("Location: ../gerenciar_horarios?status=db_error");
     exit();
 }
 
-header("Location: ../gerenciar_horarios.php?status=deleted");
+header("Location: ../gerenciar_horarios?status=deleted");
 exit();
 ?>

@@ -1,12 +1,29 @@
 # Inicia o motor de reescrita de URL
 RewriteEngine On
 
+# Impede que os usuários vejam a lista de arquivos de um diretório
+Options -Indexes
+
+# ----------------------------------------------------------------------
+# REGRAS PARA URLS AMIGÁVEIS (REMOVER .PHP)
+# ----------------------------------------------------------------------
+
+# 1. Redireciona requisições que incluem ".php" para a versão sem a extensão
+# Ex: Se alguém acessar "site.com/contato.php", será redirecionado para "site.com/contato"
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# 2. Reescreve internamente a URL amigável para o arquivo .php correspondente
+# Ex: Quando o usuário acessa "site.com/contato", o servidor carrega "contato.php"
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+
 # ----------------------------------------------------------------------
 # SEGURANÇA: Prevenção de Acesso Direto e Configurações
 # ----------------------------------------------------------------------
-
-# Impede que os usuários vejam a lista de arquivos de um diretório
-Options -Indexes
 
 # Bloqueia o acesso direto a arquivos de configuração sensíveis
 <Files "db_connect.php">
@@ -29,7 +46,7 @@ Options -Indexes
 # ----------------------------------------------------------------------
 # Se o seu site roda em https://www.seusite.com
 #
-# RewriteCond %{HTTPS} off
+# RewriteCond %{HTTPS} off 
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #
 # RewriteCond %{HTTP_HOST} !^www\.

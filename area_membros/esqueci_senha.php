@@ -14,7 +14,7 @@ $csrf_token = gerarTokenCSRF();
 </head>
 <body class="login-body">
     <div class="login-container">
-        <form action="scripts/esqueci_senha_process.php" method="POST" class="login-form">
+        <form action="scripts/esqueci_senha_process" method="POST" class="login-form">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <img src="../assets/images/logo.png" alt="Logo Luz Para os Povos" class="login-logo">
             <h2>Recuperar Senha</h2>
@@ -37,7 +37,7 @@ $csrf_token = gerarTokenCSRF();
                 <input type="date" id="data_nascimento" name="data_nascimento" required>
             </div>
             <button type="submit" class="btn">Redefinir Senha</button>
-            <a href="login.php" class="forgot-password-link">Voltar para o Login</a>
+            <a href="login" class="forgot-password-link">Voltar para o Login</a>
         </form>
     </div>
 </body>

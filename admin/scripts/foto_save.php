@@ -47,11 +47,11 @@ if (isset($_FILES['fotos'])) {
         }
     } catch (PDOException $e) {
         error_log("Erro de DB ao salvar fotos: " . $e->getMessage());
-        header("Location: ../gerenciar_fotos.php?galeria_id=" . $galeria_id . "&status=db_error");
+        header("Location: ../gerenciar_fotos?galeria_id=" . $galeria_id . "&status=db_error");
         exit();
     }
 }
 
-header("Location: ../gerenciar_fotos.php?galeria_id=" . $galeria_id . "&status=success");
+header("Location: ../gerenciar_fotos?galeria_id=" . $galeria_id . "&status=success");
 exit();
 ?>

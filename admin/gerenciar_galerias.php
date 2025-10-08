@@ -12,7 +12,7 @@ require_once('includes/header_admin.php');
 
 <div class="container">
     <h1 class="admin-title">Gerenciar Galerias</h1>
-    <a href="form_galeria.php" class="btn admin-btn-add">Criar Nova Galeria</a>
+    <a href="form_galeria" class="btn admin-btn-add">Criar Nova Galeria</a>
 
     <table class="admin-table">
         <thead>
@@ -46,9 +46,9 @@ require_once('includes/header_admin.php');
                 <td><?php echo date('d/m/Y', strtotime($galeria['data_galeria'])); ?></td>
                 <td><?php echo $galeria['total_fotos']; ?></td>
                 <td class="actions-cell">
-                    <a href="gerenciar_fotos.php?galeria_id=<?php echo $galeria['id']; ?>" class="admin-action-manage">Gerenciar Fotos</a>
-                    <a href="form_galeria.php?id=<?php echo $galeria['id']; ?>" class="admin-action-edit">Editar</a>
-                    <a href="scripts/galeria_delete.php?id=<?php echo $galeria['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('ATENÇÃO: Excluir uma galeria também apagará TODAS as fotos dentro dela. Deseja continuar?');">Excluir</a>
+                    <a href="gerenciar_fotos?galeria_id=<?php echo $galeria['id']; ?>" class="admin-action-manage">Gerenciar Fotos</a>
+                    <a href="form_galeria?id=<?php echo $galeria['id']; ?>" class="admin-action-edit">Editar</a>
+                    <a href="scripts/galeria_delete?id=<?php echo $galeria['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('ATENÇÃO: Excluir uma galeria também apagará TODAS as fotos dentro dela. Deseja continuar?');">Excluir</a>
                 </td>
             </tr>
             <?php endwhile; ?>

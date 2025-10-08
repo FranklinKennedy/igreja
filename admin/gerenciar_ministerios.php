@@ -11,7 +11,7 @@ require_once('includes/header_admin.php');
 
 <div class="container">
     <h1 class="admin-title">Gerenciar Ministérios</h1>
-    <a href="form_ministerio.php" class="btn admin-btn-add">Adicionar Novo Ministério</a>
+    <a href="form_ministerio" class="btn admin-btn-add">Adicionar Novo Ministério</a>
 
     <table class="admin-table">
         <thead>
@@ -36,8 +36,8 @@ require_once('includes/header_admin.php');
                 <td><?php echo htmlspecialchars($ministerio['nome']); ?></td>
                 <td><?php echo htmlspecialchars($ministerio['lider']); ?></td>
                 <td>
-                    <a href="form_ministerio.php?id=<?php echo $ministerio['id']; ?>" class="admin-action-edit">Editar</a>
-                    <a href="scripts/ministerio_delete.php?id=<?php echo $ministerio['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza que deseja excluir este ministério?');">Excluir</a>
+                    <a href="form_ministerio?id=<?php echo $ministerio['id']; ?>" class="admin-action-edit">Editar</a>
+                    <a href="scripts/ministerio_delete?id=<?php echo $ministerio['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza que deseja excluir este ministério?');">Excluir</a>
                 </td>
             </tr>
             <?php endwhile; ?>

@@ -3,7 +3,7 @@ require_once('../includes/session_config.php');
 require_once('../includes/security_functions.php');
 
 if (!isset($_SESSION['temp_membro_id'])) {
-    header('Location: login.php');
+    header('Location: login');
     exit();
 }
 $csrf_token = gerarTokenCSRF();
@@ -20,7 +20,7 @@ $csrf_token = gerarTokenCSRF();
 </head>
 <body class="login-body">
     <div class="login-container">
-        <form action="scripts/primeiro_acesso_save.php" method="POST" class="login-form">
+        <form action="scripts/primeiro_acesso_save" method="POST" class="login-form">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <img src="../assets/images/logo.png" alt="Logo Luz Para os Povos" class="login-logo">
             <h2>Crie sua nova senha</h2>

@@ -39,13 +39,13 @@ try {
 
     </div>
     <div class="footer-bottom">
-        <p>&copy; <?php echo date('Y'); ?> Igreja Luz Para os Povos - Hidrolândia, GO. Todos os direitos reservados. | <a href="/igreja/politica-de-privacidade.php">Política de Privacidade</a></p>
+        <p>&copy; <?php echo date('Y'); ?> Igreja Luz Para os Povos - Hidrolândia, GO. Todos os direitos reservados. | <a href="/igreja/politica-de-privacidade">Política de Privacidade</a></p>
     </div>
 </footer>
 
 <div id="cookie-consent-banner" class="cookie-consent-banner">
     <div class="cookie-text">
-        <p>Nós usamos cookies para melhorar sua experiência. Ao continuar a navegar, você concorda com a nossa <a href="/igreja/politica-de-privacidade.php">Política de Privacidade</a>.</p>
+        <p>Nós usamos cookies para melhorar sua experiência. Ao continuar a navegar, você concorda com a nossa <a href="/igreja/politica-de-privacidade">Política de Privacidade</a>.</p>
     </div>
     <button id="cookie-accept-btn" class="cookie-accept-btn">Aceitar</button>
 </div>

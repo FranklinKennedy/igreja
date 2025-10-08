@@ -11,7 +11,7 @@ require_once('includes/header_admin.php');
 
 <div class="container">
     <h1 class="admin-title">Gerenciar Eventos</h1>
-    <a href="form_evento.php" class="btn admin-btn-add">Adicionar Novo Evento</a>
+    <a href="form_evento" class="btn admin-btn-add">Adicionar Novo Evento</a>
 
     <table class="admin-table">
         <thead>
@@ -36,8 +36,8 @@ require_once('includes/header_admin.php');
                 <td><?php echo htmlspecialchars($evento['titulo']); ?></td>
                 <td><?php echo date('d/m/Y H:i', strtotime($evento['data_evento'])); ?></td>
                 <td>
-                    <a href="form_evento.php?id=<?php echo $evento['id']; ?>" class="admin-action-edit">Editar</a>
-                    <a href="scripts/evento_delete.php?id=<?php echo $evento['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza que deseja excluir este evento?');">Excluir</a>
+                    <a href="form_evento?id=<?php echo $evento['id']; ?>" class="admin-action-edit">Editar</a>
+                    <a href="scripts/evento_delete?id=<?php echo $evento['id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza que deseja excluir este evento?');">Excluir</a>
                 </td>
             </tr>
             <?php endwhile; ?>

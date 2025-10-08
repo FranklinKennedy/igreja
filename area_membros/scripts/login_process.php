@@ -3,7 +3,7 @@
 require_once('../../includes/session_config.php');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../login.php");
+    header("Location: ../login");
     exit();
 }
 
@@ -28,7 +28,7 @@ try {
 
         if ($usuario['forcar_troca_senha']) {
             $_SESSION['temp_membro_id'] = $usuario['id'];
-            header("Location: ../primeiro_acesso.php");
+            header("Location: ../primeiro_acesso");
             exit();
         }
 
@@ -37,7 +37,7 @@ try {
         $_SESSION['usuario_membro_id'] = $usuario['id'];
         $_SESSION['membro_nome'] = $usuario['nome_completo'];
         $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
-        header("Location: ../index.php");
+        header("Location: ../index");
         exit();
     }
     
@@ -45,17 +45,17 @@ try {
     elseif ($usuario && $usuario['forcar_troca_senha'] && $senha_digitada === $usuario['cpf']) {
         session_regenerate_id(true);
         $_SESSION['temp_membro_id'] = $usuario['id'];
-        header("Location: ../primeiro_acesso.php");
+        header("Location: ../primeiro_acesso");
         exit();
     }
 
     // Se chegou até aqui, o login falhou completamente
-    header("Location: ../login.php?error=1");
+    header("Location: ../login?error=1");
     exit();
 
 } catch (PDOException $e) {
     error_log("Erro no login de membro: " . $e->getMessage());
-    header("Location: ../login.php?status=db_error");
+    header("Location: ../login?status=db_error");
     exit();
 }
 ?>

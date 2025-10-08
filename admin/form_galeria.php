@@ -1,20 +1,13 @@
 <?php
 $page_title = 'Criar Nova Galeria';
-// O 'check_login.php' já lida com o início da sessão segura
 require_once('includes/check_login.php');
-// Incluímos nossas funções de segurança para gerar o token
 require_once('../includes/security_functions.php');
 require_once('../includes/db_connect.php');
 
-// Define um array padrão para uma nova galeria
 $galeria = [
-    'id' => '',
-    'titulo' => '',
-    'data_galeria' => date('Y-m-d'), // Padrão: data de hoje
-    'imagem_capa_url' => ''
+    'id' => '', 'titulo' => '', 'data_galeria' => date('Y-m-d'), 'imagem_capa_url' => ''
 ];
 
-// Se um ID for passado na URL, estamos editando
 if (isset($_GET['id'])) {
     $page_title = 'Editar Galeria';
     $stmt = $pdo->prepare("SELECT * FROM galerias WHERE id = ?");
@@ -25,16 +18,14 @@ if (isset($_GET['id'])) {
     }
 }
 
-// Gera o token de segurança para o formulário
 $csrf_token = gerarTokenCSRF();
-
 require_once('includes/header_admin.php');
 ?>
 
 <div class="container">
     <h1 class="admin-title"><?php echo htmlspecialchars($page_title); ?></h1>
 
-    <form action="scripts/galeria_save.php" method="POST" enctype="multipart/form-data" class="admin-form">
+    <form action="scripts/galeria_save" method="POST" enctype="multipart/form-data" class="admin-form">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($galeria['id']); ?>">
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
@@ -57,7 +48,7 @@ require_once('includes/header_admin.php');
         </div>
 
         <button type="submit" class="btn">Salvar Galeria</button>
-        <a href="gerenciar_galerias.php" class="btn-cancel">Cancelar</a>
+        <a href="gerenciar_galerias" class="btn-cancel">Cancelar</a>
     </form>
 </div>
 

@@ -1,7 +1,5 @@
 <?php
-// O 'check_login.php' já inicia a sessão de forma segura
 require_once('includes/check_login.php');
-// Incluímos as funções de segurança para gerar o token
 require_once('../includes/security_functions.php');
 require_once('../includes/db_connect.php');
 
@@ -13,22 +11,19 @@ if (isset($_GET['id'])) {
     $stmt = $pdo->prepare("SELECT * FROM ministerios WHERE id = ?");
     $stmt->execute([$_GET['id']]);
     $ministerio_data = $stmt->fetch();
-    // Garante que o fetch retornou dados antes de atribuir
     if($ministerio_data) {
         $ministerio = $ministerio_data;
     }
 }
 
-// Gera o token de segurança para o formulário
 $csrf_token = gerarTokenCSRF();
-
 require_once('includes/header_admin.php');
 ?>
 
 <div class="container">
     <h1 class="admin-title"><?php echo htmlspecialchars($page_title); ?></h1>
 
-    <form action="scripts/ministerio_save.php" method="POST" enctype="multipart/form-data" class="admin-form">
+    <form action="scripts/ministerio_save" method="POST" enctype="multipart/form-data" class="admin-form">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($ministerio['id']); ?>">
         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 
@@ -56,7 +51,7 @@ require_once('includes/header_admin.php');
         </div>
 
         <button type="submit" class="btn">Salvar Ministério</button>
-        <a href="gerenciar_ministerios.php" class="btn-cancel">Cancelar</a>
+        <a href="gerenciar_ministerios" class="btn-cancel">Cancelar</a>
     </form>
 </div>
 

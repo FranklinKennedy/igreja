@@ -15,7 +15,7 @@ $csrf_token = gerarTokenCSRF();
 
 <div class="header-com-botao">
     <h1 class="painel-title">Gerenciar Membros e Usuários</h1>
-    <a href="form_membro.php" class="btn">Cadastrar Novo Membro</a>
+    <a href="form_membro" class="btn">Cadastrar Novo Membro</a>
 </div>
 
 <div class="table-wrapper">
@@ -44,8 +44,8 @@ $csrf_token = gerarTokenCSRF();
                 <td><?php echo htmlspecialchars($membro['cpf']); ?></td>
                 <td>Nível <?php echo htmlspecialchars($membro['nivel_acesso']); ?></td>
                 <td class="actions-cell">
-                    <a href="form_membro.php?id=<?php echo $membro['membro_id']; ?>" class="admin-action-edit">Editar</a>
-                    <a href="scripts/membro_delete.php?id=<?php echo $membro['membro_id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
+                    <a href="form_membro?id=<?php echo $membro['membro_id']; ?>" class="admin-action-edit">Editar</a>
+                    <a href="scripts/membro_delete?id=<?php echo $membro['membro_id']; ?>&token=<?php echo $csrf_token; ?>" class="admin-action-delete" onclick="return confirm('Tem certeza?');">Excluir</a>
                 </td>
             </tr>
             <?php endwhile; ?>

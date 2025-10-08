@@ -17,10 +17,10 @@ try {
     $stmt->execute([$_GET['id']]);
 } catch (PDOException $e) {
     error_log("Erro ao excluir função: " . $e->getMessage());
-    header("Location: ../gerenciar_funcoes.php?status=db_error");
+    header("Location: ../gerenciar_funcoes?status=db_error");
     exit();
 }
 
-header("Location: ../gerenciar_funcoes.php?status=deleted");
+header("Location: ../gerenciar_funcoes?status=deleted");
 exit();
 ?>

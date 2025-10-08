@@ -18,19 +18,19 @@ require_once('check_login.php');
     <div class="admin-wrapper">
         <aside class="admin-sidebar">
             <div class="sidebar-header">
-                <a href="/igreja/admin/dashboard.php">
+                <a href="/igreja/admin/dashboard">
                 <img src="/igreja/assets/images/logo.png" alt="Logo" class="sidebar-logo">
                 </a>
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="/igreja/admin/dashboard.php">Dashboard</a></li>
-                    <li><a href="/igreja/admin/gerenciar_eventos.php">Eventos</a></li>
-                    <li><a href="/igreja/admin/gerenciar_ministerios.php">Ministérios</a></li>
-                    <li><a href="/igreja/admin/gerenciar_banners.php">Banners da Home</a></li>
-                    <li><a href="/igreja/admin/gerenciar_downloads.php">Downloads</a></li>
-                    <li><a href="/igreja/admin/gerenciar_horarios.php">Gerenciar Horários</a></li>
-                    <li><a href="/igreja/admin/configuracoes.php">Configurações</a></li>
+                    <li><a href="/igreja/admin/dashboard">Dashboard</a></li>
+                    <li><a href="/igreja/admin/gerenciar_eventos">Eventos</a></li>
+                    <li><a href="/igreja/admin/gerenciar_ministerios">Ministérios</a></li>
+                    <li><a href="/igreja/admin/gerenciar_banners">Banners da Home</a></li>
+                    <li><a href="/igreja/admin/gerenciar_downloads">Downloads</a></li>
+                    <li><a href="/igreja/admin/gerenciar_horarios">Gerenciar Horários</a></li>
+                    <li><a href="/igreja/admin/configuracoes">Configurações</a></li>
                 </ul>
             </nav>
         </aside>
@@ -39,7 +39,7 @@ require_once('check_login.php');
                 <h2><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'Painel Administrativo'; ?></h2>
                 <div class="user-info">
                     <span>Olá, <?php echo htmlspecialchars($_SESSION['admin_nome']); ?></span>
-                    <a href="/igreja/admin/scripts/logout.php" class="logout-btn">Sair</a>
+                    <a href="/igreja/admin/scripts/logout" class="logout-btn">Sair</a>
                 </div>
             </header>
             <main class="admin-content">

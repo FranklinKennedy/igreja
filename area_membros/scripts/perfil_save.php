@@ -28,13 +28,13 @@ try {
 
     $_SESSION['membro_nome'] = $nome_completo;
 
-    header("Location: ../meu_perfil.php?status=perfil_ok");
+    header("Location: ../meu_perfil?status=perfil_ok");
     exit();
 
 } catch (PDOException $e) {
     $pdo->rollBack();
     error_log("Erro ao atualizar perfil: " . $e->getMessage());
-    header("Location: ../meu_perfil.php?status=db_error");
+    header("Location: ../meu_perfil?status=db_error");
     exit();
 }
 ?>

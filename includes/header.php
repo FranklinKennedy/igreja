@@ -21,20 +21,20 @@ $page_css = isset($page_css) ? $page_css : '';
 <body>
 <header class="main-header">
     <div class="container">
-        <a href="/igreja/index.php" class="logo">
+        <a href="/igreja/" class="logo">
             <img src="/igreja/assets/images/logo.png" alt="Logo Luz Para Os Povos">
         </a>
         <nav class="main-nav">
             <ul>
-                <li><a href="/igreja/index.php">Início</a></li>
-                <li><a href="/igreja/sobre.php">Quem Somos</a></li>
-                <li><a href="/igreja/ministerios.php">Ministérios</a></li>
-                <li><a href="/igreja/eventos.php">Eventos</a></li>
-                <li><a href="/igreja/missoes.php">Missões</a></li>
-                <li><a href="/igreja/downloads.php">Downloads</a></li>
-                <li><a href="/igreja/doacoes.php">Doações</a></li>
-                <li><a href="/igreja/contato.php">Contato</a></li>
-                <li><a href="/igreja/area_membros/login.php" class="btn btn-nav">Área de Membros</a></li>
+                <li><a href="/igreja/">Início</a></li>
+                <li><a href="/igreja/sobre">Quem Somos</a></li>
+                <li><a href="/igreja/ministerios">Ministérios</a></li>
+                <li><a href="/igreja/eventos">Eventos</a></li>
+                <li><a href="/igreja/missoes">Missões</a></li>
+                <li><a href="/igreja/downloads">Downloads</a></li>
+                <li><a href="/igreja/doacoes">Doações</a></li>
+                <li><a href="/igreja/contato">Contato</a></li>
+                <li><a href="/igreja/area_membros/login" class="btn btn-nav">Área de Membros</a></li>
             </ul>
         </nav>
         <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menu">
