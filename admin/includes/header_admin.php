@@ -8,6 +8,7 @@ require_once('check_login.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/igreja/assets/images/logofav.png">
     <title><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'Painel Administrativo'; ?> - Luz Para os Povos</title>
     <link rel="stylesheet" href="/igreja/admin/assets/admin_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +31,7 @@ require_once('check_login.php');
                     <li><a href="/igreja/admin/gerenciar_lideranca">Liderança</a></li>
                     <li><a href="/igreja/admin/gerenciar_banners">Banners da Home</a></li>
                     <li><a href="/igreja/admin/gerenciar_downloads">Downloads</a></li>
+                    <li><a href="/igreja/admin/gerenciar_projetos">Projetos Missionários</a></li>
                     <li><a href="/igreja/admin/gerenciar_horarios">Gerenciar Horários</a></li>
                     <li><a href="/igreja/admin/configuracoes">Configurações</a></li>
                 </ul>

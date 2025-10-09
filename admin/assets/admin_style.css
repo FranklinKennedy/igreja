@@ -165,15 +165,14 @@ body {
     padding: 15px 30px;
     border-bottom: 1px solid #e0e0e0;
     display: flex;
-    /* justify-content: space-between; */
-    justify-content: flex-end; /* Altera para alinhar à direita */
+    justify-content: flex-end;
     align-items: center;
     gap: 1rem;
 }
 
 .admin-header h2 {
     margin: 0;
-    margin-right: auto; /* Empurra o H2 para a esquerda */
+    margin-right: auto;
     font-size: 1.5rem;
     color: var(--cor-secundaria);
 }
@@ -303,12 +302,16 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid #e0e0e0;
 }
+/* A MUDANÇA ESTÁ AQUI: Adicionei os seletores do formulário de login */
 .admin-form input[type="text"],
 .admin-form input[type="url"],
 .admin-form input[type="email"],
 .admin-form input[type="datetime-local"],
 .admin-form input[type="date"],
 .admin-form input[type="number"],
+.admin-form input[type="file"],
+.login-form input[type="email"],
+.login-form input[type="password"],
 .admin-form select,
 .admin-form textarea {
     width: 100%;
@@ -321,7 +324,10 @@ body {
     background-color: var(--cor-branco);
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
+/* E AQUI TAMBÉM: Para o efeito de foco */
 .admin-form input:focus,
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus,
 .admin-form select:focus,
 .admin-form textarea:focus {
     outline: none;
@@ -360,7 +366,7 @@ input:checked + .slider:before { transform: translateX(22px); }
 
 /* === MENU HAMBÚRGUER (MOBILE) === */
 .mobile-menu-toggle {
-    display: none; /* Escondido por padrão em telas grandes */
+    display: none;
     background: none; border: none; cursor: pointer;
     width: 30px; height: 24px;
     position: relative;
@@ -378,24 +384,106 @@ input:checked + .slider:before { transform: translateX(22px); }
 .mobile-menu-toggle span:nth-child(2) { top: 10px; opacity: 1; }
 .mobile-menu-toggle span:nth-child(3) { top: 20px; }
 
-/* Animação para "X" */
 .mobile-menu-toggle.is-active span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .mobile-menu-toggle.is-active span:nth-child(2) { opacity: 0; }
 .mobile-menu-toggle.is-active span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
 
 /* ================================================= */
+/* ===  NOVO: ESTILOS PARA GERENCIADOR DE MÍDIAS  === */
+/* ================================================= */
+.upload-form-container {
+    margin-bottom: 2rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 8px 15px;
+    background-color: var(--cor-fundo-admin);
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+.back-link:hover {
+    background-color: #e2e6ea;
+    border-color: #ccc;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 2rem 0;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.photo-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #f0f2f5;
+}
+
+.photo-card img,
+.photo-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.delete-photo-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(220, 53, 69, 0.8);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.2s ease-in-out;
+}
+
+.photo-card:hover .delete-photo-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.delete-photo-btn:hover {
+    background-color: rgba(220, 53, 69, 1);
+    transform: scale(1.1);
+}
+
+/* ================================================= */
 /* ===         REGRAS DE RESPONSIVIDADE          === */
 /* ================================================= */
-
 @media (max-width: 992px) {
     .mobile-menu-toggle {
-        display: block; /* Mostra o botão em telas menores */
+        display: block;
     }
 
     .admin-sidebar {
         position: fixed;
-        left: -250px; /* Começa escondido fora da tela */
+        left: -250px;
         top: 0;
         height: 100vh;
         z-index: 1000;
@@ -404,11 +492,11 @@ input:checked + .slider:before { transform: translateX(22px); }
     }
 
     .admin-sidebar.is-open {
-        left: 0; /* Mostra o menu ao adicionar a classe */
+        left: 0;
     }
     
     .admin-main {
-        width: 100%; /* Ocupa toda a largura */
+        width: 100%;
     }
 
     .admin-header {
@@ -423,7 +511,7 @@ input:checked + .slider:before { transform: translateX(22px); }
 
 @media (max-width: 768px) {
     .user-info span {
-        display: none; /* Opcional: esconder o nome do usuário em telas muito pequenas */
+        display: none;
     }
 
     .admin-content {
@@ -443,5 +531,8 @@ input:checked + .slider:before { transform: translateX(22px); }
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
+    }
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }

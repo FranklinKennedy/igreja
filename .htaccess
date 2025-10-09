@@ -1,6 +1,9 @@
 # Inicia o motor de reescrita de URL
 RewriteEngine On
 
+# DEFINE O CAMINHO BASE PARA AS REGRAS DENTRO DESTA PASTA
+RewriteBase /igreja/
+
 # Impede que os usuários vejam a lista de arquivos de um diretório
 Options -Indexes
 
@@ -9,12 +12,10 @@ Options -Indexes
 # ----------------------------------------------------------------------
 
 # 1. Redireciona requisições que incluem ".php" para a versão sem a extensão
-# Ex: Se alguém acessar "site.com/contato.php", será redirecionado para "site.com/contato"
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
 
 # 2. Reescreve internamente a URL amigável para o arquivo .php correspondente
-# Ex: Quando o usuário acessa "site.com/contato", o servidor carrega "contato.php"
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.php -f
