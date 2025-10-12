@@ -33,6 +33,7 @@ require_once('check_login.php');
                     <li><a href="/igreja/admin/gerenciar_downloads">Downloads</a></li>
                     <li><a href="/igreja/admin/gerenciar_projetos">Projetos Missionários</a></li>
                     <li><a href="/igreja/admin/gerenciar_horarios">Gerenciar Horários</a></li>
+                    <li><a href="/igreja/admin/gerenciar_admins">Gerenciar Admins</a></li>
                     <li><a href="/igreja/admin/configuracoes">Configurações</a></li>
                 </ul>
             </nav>
@@ -47,7 +48,13 @@ require_once('check_login.php');
                 
                 <h2><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'Painel Administrativo'; ?></h2>
                 <div class="user-info">
-                    <span>Olá, <?php echo htmlspecialchars($_SESSION['admin_nome']); ?></span>
+                    <span>Olá, <?php 
+                        $nomeCompleto = $_SESSION['admin_nome'] ?? 'Admin';
+                        $partesNome = explode(' ', trim($nomeCompleto));
+                        $primeiroNome = $partesNome[0];
+                        $segundoNome = isset($partesNome[1]) ? ' ' . $partesNome[1] : '';
+                        echo htmlspecialchars($primeiroNome . $segundoNome); 
+                    ?></span>
                     <a href="/igreja/admin/scripts/logout" class="logout-btn">Sair</a>
                 </div>
             </header>
@@ -59,25 +66,41 @@ require_once('check_login.php');
                     $type = 'success'; // Padrão é sucesso
 
                     switch ($_GET['status']) {
+                        // Mensagens de Sucesso
                         case 'success':
                             $message = 'Operação realizada com sucesso!';
                             break;
                         case 'deleted':
                             $message = 'Item excluído com sucesso!';
                             break;
+
+                        // Mensagens de Erro
                         case 'error':
                         case 'db_error':
                             $message = 'Ocorreu um erro ao realizar a operação. Tente novamente.';
                             $type = 'error';
                             break;
                         case 'upload_error':
-                            // Pega a mensagem de erro específica do upload da URL
                             $error_msg = isset($_GET['msg']) ? htmlspecialchars($_GET['msg']) : 'Tente novamente.';
                             $message = 'Erro no upload do arquivo: ' . $error_msg;
                             $type = 'error';
                             break;
                         case 'expired':
                             $message = 'Sua sessão expirou. Por favor, faça o login novamente.';
+                            $type = 'error';
+                            break;
+
+                        // NOVAS MENSAGENS DE ERRO ESPECÍFICAS
+                        case 'password_mismatch':
+                            $message = 'Erro: As senhas não conferem. Tente novamente.';
+                            $type = 'error';
+                            break;
+                        case 'password_required':
+                            $message = 'Erro: A senha é obrigatória para novos administradores.';
+                            $type = 'error';
+                            break;
+                        case 'email_in_use':
+                            $message = 'Erro: O email informado já está em uso por outra conta.';
                             $type = 'error';
                             break;
                     }

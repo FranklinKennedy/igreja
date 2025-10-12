@@ -9,6 +9,28 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 require_once('../../includes/db_connect.php');
 
+// --- INÍCIO DA PROTEÇÃO CONTRA FORÇA BRUTA ---
+const MAX_LOGIN_ATTEMPTS_MEMBRO = 5; // Máximo de tentativas permitidas
+const BLOCK_TIME_MINUTES_MEMBRO = 15; // Tempo de bloqueio em minutos
+$ip_address = $_SERVER['REMOTE_ADDR'];
+$login_type = 'membro';
+
+try {
+    $sql_check = "SELECT COUNT(*) FROM login_attempts WHERE ip_address = ? AND login_type = ? AND timestamp > (NOW() - INTERVAL ? MINUTE)";
+    $stmt_check = $pdo->prepare($sql_check);
+    $stmt_check->execute([$ip_address, $login_type, BLOCK_TIME_MINUTES_MEMBRO]);
+    $attempts_count = $stmt_check->fetchColumn();
+
+    if ($attempts_count >= MAX_LOGIN_ATTEMPTS_MEMBRO) {
+        http_response_code(429); // Too Many Requests
+        die("Muitas tentativas de login falhas. Por segurança, seu acesso foi bloqueado por " . BLOCK_TIME_MINUTES_MEMBRO . " minutos.");
+    }
+} catch (PDOException $e) {
+    error_log("Erro ao checar tentativas de login (membro): " . $e->getMessage());
+    // Continua a execução, mas loga o erro.
+}
+// --- FIM DA PROTEÇÃO ---
+
 $email = $_POST['email'];
 $senha_digitada = $_POST['senha'];
 
@@ -20,8 +42,19 @@ try {
     $stmt->execute([$email]);
     $usuario = $stmt->fetch();
 
+    $login_sucesso = false;
     if ($usuario && password_verify($senha_digitada, $usuario['senha'])) {
-        // Sucesso na verificação da senha
+        $login_sucesso = true;
+    } elseif ($usuario && $usuario['forcar_troca_senha'] && $senha_digitada === $usuario['cpf']) {
+        $login_sucesso = true;
+    }
+
+    if ($login_sucesso) {
+        // Sucesso na verificação!
+
+        // Limpa as tentativas de login falhas para este IP
+        $stmt_clear = $pdo->prepare("DELETE FROM login_attempts WHERE ip_address = ? AND login_type = ?");
+        $stmt_clear->execute([$ip_address, $login_type]);
         
         // Regenera o ID da sessão para prevenir ataques de fixação de sessão.
         session_regenerate_id(true);
@@ -41,15 +74,11 @@ try {
         exit();
     }
     
-    // Se a senha principal falhou, verifica se é o primeiro acesso com CPF
-    elseif ($usuario && $usuario['forcar_troca_senha'] && $senha_digitada === $usuario['cpf']) {
-        session_regenerate_id(true);
-        $_SESSION['temp_membro_id'] = $usuario['id'];
-        header("Location: ../primeiro_acesso");
-        exit();
-    }
-
     // Se chegou até aqui, o login falhou completamente
+    // Registra a tentativa de login falha
+    $stmt_log = $pdo->prepare("INSERT INTO login_attempts (ip_address, login_type) VALUES (?, ?)");
+    $stmt_log->execute([$ip_address, $login_type]);
+
     header("Location: ../login?error=1");
     exit();
 
